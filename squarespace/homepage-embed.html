@@ -20,7 +20,7 @@
 <!-- DM Sans — browser deduplicates if Squarespace already loaded it -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <!-- ══════════════════════════════════════════════════════════════
      SECTION 1: HOW — One partner. One interface.
@@ -98,8 +98,8 @@
             <li>Telemetry</li>
           </ul>
           <div class="nxr-what__cta">
-            <a href="#contact" class="nxr-what__link">Learn more
-              <svg width="24" height="10" viewBox="0 0 24 10" fill="none" aria-hidden="true"><path d="M19 1L23 5L19 9M1 5H23" stroke="#64B700" stroke-width="1.5" stroke-linecap="square"/></svg>
+            <a href="#contact" class="nxr-what__link" aria-label="Learn more">
+              <svg width="28" height="12" viewBox="0 0 24 10" fill="none" aria-hidden="true"><path d="M19 1L23 5L19 9M1 5H23" stroke="#64B700" stroke-width="1.5" stroke-linecap="square"/></svg>
             </a>
           </div>
         </div>
@@ -120,8 +120,8 @@
             <li>Turnkey modular infrastructure</li>
           </ul>
           <div class="nxr-what__cta">
-            <a href="#contact" class="nxr-what__link">Learn more
-              <svg width="24" height="10" viewBox="0 0 24 10" fill="none" aria-hidden="true"><path d="M19 1L23 5L19 9M1 5H23" stroke="#64B700" stroke-width="1.5" stroke-linecap="square"/></svg>
+            <a href="#contact" class="nxr-what__link" aria-label="Learn more">
+              <svg width="28" height="12" viewBox="0 0 24 10" fill="none" aria-hidden="true"><path d="M19 1L23 5L19 9M1 5H23" stroke="#64B700" stroke-width="1.5" stroke-linecap="square"/></svg>
             </a>
           </div>
         </div>
@@ -142,8 +142,8 @@
             <li>Energy monitoring platforms</li>
           </ul>
           <div class="nxr-what__cta">
-            <a href="#contact" class="nxr-what__link">Learn more
-              <svg width="24" height="10" viewBox="0 0 24 10" fill="none" aria-hidden="true"><path d="M19 1L23 5L19 9M1 5H23" stroke="#64B700" stroke-width="1.5" stroke-linecap="square"/></svg>
+            <a href="#contact" class="nxr-what__link" aria-label="Learn more">
+              <svg width="28" height="12" viewBox="0 0 24 10" fill="none" aria-hidden="true"><path d="M19 1L23 5L19 9M1 5H23" stroke="#64B700" stroke-width="1.5" stroke-linecap="square"/></svg>
             </a>
           </div>
         </div>
@@ -163,8 +163,8 @@
             <li>Tailored industrial solutions</li>
           </ul>
           <div class="nxr-what__cta">
-            <a href="#contact" class="nxr-what__link">Learn more
-              <svg width="24" height="10" viewBox="0 0 24 10" fill="none" aria-hidden="true"><path d="M19 1L23 5L19 9M1 5H23" stroke="#64B700" stroke-width="1.5" stroke-linecap="square"/></svg>
+            <a href="#contact" class="nxr-what__link" aria-label="Learn more">
+              <svg width="28" height="12" viewBox="0 0 24 10" fill="none" aria-hidden="true"><path d="M19 1L23 5L19 9M1 5H23" stroke="#64B700" stroke-width="1.5" stroke-linecap="square"/></svg>
             </a>
           </div>
         </div>
@@ -459,9 +459,9 @@
 .nxr-accent { color: var(--nxr-green); }
 
 .nxr-subtitle {
-  font-size: clamp(18px, 1.9vw, 26px);
+  font-size: 26px;
   font-weight: 400;
-  line-height: 1.5;
+  line-height: 1.4;
   color: var(--nxr-text);
   max-width: 760px;
 }
@@ -591,14 +591,14 @@
   object-fit: cover;
   clip-path: polygon(0 0, calc(100% - 24px) 0, 100% 100%, 0 100%);
 }
-/* Copy + icons + CTA — one left-aligned frame */
+/* Copy + icons + CTA — one left-aligned frame, paragraph pinned to top */
 .nxr-how__copy-col {
   flex: 1 1 auto;
   min-width: 0;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 24px;
 }
 .nxr-how__step-body {
@@ -609,8 +609,10 @@
 }
 .nxr-how__icon-row {
   display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
+  width: 100%;
+  max-width: 395px;
+  min-height: 106px;
+  gap: 25px;
 }
 .nxr-how__icon {
   flex: 1 1 0;
@@ -618,14 +620,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
   gap: 12px;
   text-align: center;
 }
 .nxr-how__icon img {
   width: 50px;
   height: 50px;
+  flex-shrink: 0;
   object-fit: contain;
-  filter: brightness(0) opacity(0.62);
+  /* brightness(0) -> black, invert(0.62) -> rgb(158)=#9E9E9E */
+  filter: brightness(0) invert(0.62);
 }
 .nxr-how__icon-cap {
   font-size: 18px;
@@ -634,11 +639,17 @@
   color: var(--nxr-gray);
 }
 .nxr-how__copy-col .nxr-btn {
+  height: 75px;
+  padding: 15px 25px;
+  width: fit-content;
   max-width: 250px;
-  width: 100%;
   align-self: flex-start;
   justify-content: center;
-  margin-top: 4px;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-top: auto;
 }
 
 /* HOW section content fade transition */
@@ -651,21 +662,25 @@
    WHAT SECTION
 ════════════════════════════════════════════════════════════════ */
 .nxr-what { background: var(--nxr-white); }
-.nxr-what .nxr-container { max-width: 1496px; }
+/* Horizontally scrollable carousel */
 .nxr-what__grid {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-wrap: nowrap;
   gap: 32px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 14px;
 }
 .nxr-what__card {
-  flex: 0 1 350px;
-  width: 100%;
-  max-width: 350px;
+  flex: 0 0 350px;
+  width: 350px;
   height: 480px;
+  position: relative;
   display: flex;
   flex-direction: column;
   background: var(--nxr-blue);
+  scroll-snap-align: start;
 }
 .nxr-what__img-wrap {
   height: 200px;
@@ -682,45 +697,45 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 24px;
+  padding: 25px;
+  min-height: 0;
 }
 .nxr-what__title {
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 500;
+  line-height: 1.25;
   color: var(--nxr-white);
-  margin-bottom: 16px;
+  text-align: center;
+  margin-bottom: 12px;
 }
 .nxr-what__list {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 7px;
-  margin-bottom: 16px;
+  gap: 2px;
 }
 .nxr-what__list li {
-  font-size: 15px;
+  font-size: 20px;
   font-weight: 300;
-  line-height: 1.45;
+  line-height: 26px;
   color: #C7D0DA;
-  padding-left: 14px;
+  padding-left: 16px;
   position: relative;
 }
 .nxr-what__list li::before {
   content: '';
   position: absolute;
   left: 0;
-  top: 0.7em;
-  width: 5px;
+  top: 13px;
+  width: 7px;
   height: 1px;
   background: var(--nxr-green);
 }
+/* Arrow-only CTA, locked bottom-right (body padding = 25px from edges) */
 .nxr-what__cta { margin-top: auto; text-align: right; }
 .nxr-what__link {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
-  font-size: 14px;
-  font-weight: 500;
   color: var(--nxr-green);
 }
 .nxr-what__link svg { flex-shrink: 0; }
@@ -739,8 +754,8 @@
 .nxr-app__th {
   background: var(--nxr-blue);
   color: #fff;
-  font-size: clamp(13px, 1.1vw, 15px);
-  font-weight: 400;
+  font-size: 20px;
+  font-weight: 300;
   padding: 16px 12px;
   text-align: center;
   vertical-align: middle;
@@ -757,8 +772,8 @@
   border-bottom: 1px solid #EBEBEB;
 }
 .nxr-app__td--label {
-  font-size: clamp(13px, 1.1vw, 15px);
-  font-weight: 400;
+  font-size: 18px;
+  font-weight: 300;
   color: var(--nxr-text);
   padding-left: 24px;
 }
@@ -975,6 +990,7 @@
 ════════════════════════════════════════════════════════════════ */
 @media (max-width: 599px) {
   .nxr-section { padding: 40px 24px; }
+  .nxr-subtitle { font-size: 18px; }
 
   /* HOW — accordion-style vertical stack */
   .nxr-how__menu { flex-direction: column; gap: 0; }
@@ -982,8 +998,7 @@
   .nxr-how__item-label { text-align: left; }
   .nxr-how__icon { flex: 1 1 33%; }
 
-  /* WHAT */
-  .nxr-what__card { height: auto; }
+  /* WHAT carousel keeps fixed cards (scrolls horizontally) */
 
   /* VAL */
   .nxr-val__grid { grid-template-columns: 1fr; }
