@@ -1,0 +1,1207 @@
+<!--
+  NEXARA — HOMEPAGE SECTIONS EMBED — Squarespace Code Block
+  ════════════════════════════════════════════════════════════
+  Paste this entire file's contents into a Squarespace code block.
+
+  BEFORE PASTING — one-time setup:
+  1. Push this project repo to GitHub (public or private)
+  2. Find the CONFIGURE line below and set NXR_BASE to your
+     GitHub raw content URL, e.g.:
+     https://raw.githubusercontent.com/nexara-energy/nexara-energy-website/main
+
+  Sections (hero excluded — handled by Squarespace):
+    1. HOW   — One partner. One interface.           (interactive tabs)
+    2. WHAT  — Energy solutions for all environments. (service cards)
+    3. APP   — Tried and tested in the field.        (capability matrix)
+    4. LC    — Full life-cycle support.              (interactive timeline)
+    5. VAL   — Our five pillars of value.            (value cards)
+-->
+
+<!-- Inter font — browser deduplicates if Squarespace already loaded it -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<!-- ══════════════════════════════════════════════════════════════
+     SECTION 1: HOW — One partner. One interface.
+══════════════════════════════════════════════════════════════ -->
+<section class="nxr-section nxr-how" id="how-nexara-works">
+  <div class="nxr-container">
+    <div class="nxr-section-header">
+      <h2 class="nxr-h2">One partner. <span class="nxr-accent">One interface.</span></h2>
+      <p class="nxr-subtitle">Nexara removes unnecessary complexity. See our integrated delivery model below:</p>
+    </div>
+
+    <div class="nxr-how__widget">
+      <!-- Left: step menu -->
+      <div class="nxr-how__left">
+        <nav class="nxr-how__menu" aria-label="Delivery model steps">
+          <button class="nxr-how__item nxr-active" data-step="0" type="button">
+            <span class="nxr-how__circle" aria-hidden="true"><span>1</span></span>
+            <span class="nxr-how__item-label">Integrated power, done right.</span>
+          </button>
+          <button class="nxr-how__item" data-step="1" type="button">
+            <span class="nxr-how__circle" aria-hidden="true"><span>2</span></span>
+            <span class="nxr-how__item-label">Power deployment without friction.</span>
+          </button>
+          <button class="nxr-how__item" data-step="2" type="button">
+            <span class="nxr-how__circle" aria-hidden="true"><span>3</span></span>
+            <span class="nxr-how__item-label">Execution where it matters most.</span>
+          </button>
+          <button class="nxr-how__item" data-step="3" type="button">
+            <span class="nxr-how__circle" aria-hidden="true"><span>4</span></span>
+            <span class="nxr-how__item-label">Built for how you operate.</span>
+          </button>
+        </nav>
+        <div class="nxr-how__divider" aria-hidden="true"></div>
+      </div>
+
+      <!-- Right: content panel -->
+      <div class="nxr-how__right">
+        <div class="nxr-how__photo-col">
+          <img class="nxr-how__photo nxr-img" data-nxr="images/on-site-power-generators.png" alt="Nexara power generation in the field" loading="lazy">
+        </div>
+        <div class="nxr-how__copy-col">
+          <h3 id="nxrHowTitle" class="nxr-how__step-title"></h3>
+          <p id="nxrHowBody" class="nxr-how__step-body"></p>
+          <div id="nxrHowIcons" class="nxr-how__icon-row"></div>
+          <a id="nxrHowBtn" href="#contact" class="nxr-btn"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════
+     SECTION 2: WHAT — Energy solutions for all environments.
+══════════════════════════════════════════════════════════════ -->
+<section class="nxr-section nxr-what" id="nexara-solutions">
+  <div class="nxr-container">
+    <div class="nxr-section-header">
+      <h2 class="nxr-h2">Energy solutions for <span class="nxr-accent">all environments.</span></h2>
+      <p class="nxr-subtitle">Every job site faces its own unique set of challenges. We make things work for you and your team.</p>
+    </div>
+
+    <div class="nxr-what__grid">
+      <!-- Card 1 -->
+      <div class="nxr-what__card nxr-reveal">
+        <div class="nxr-what__img-wrap">
+          <img class="nxr-what__img nxr-img" data-nxr="images/on-site-power-generators.png" alt="On-site power generators" loading="lazy">
+        </div>
+        <div class="nxr-what__body">
+          <h3 class="nxr-what__title">On-site Power Generation</h3>
+          <ul class="nxr-what__list">
+            <li>Natural gas generators</li>
+            <li>Diesel power systems</li>
+            <li>Mobile and modular units</li>
+            <li>Prime and standby gensets</li>
+            <li>Parallel generator configuration</li>
+            <li>Telemetry</li>
+          </ul>
+          <div class="nxr-what__cta">
+            <a href="#contact" class="nxr-what__link">Learn more
+              <svg width="24" height="10" viewBox="0 0 24 10" fill="none" aria-hidden="true"><path d="M19 1L23 5L19 9M1 5H23" stroke="#64B700" stroke-width="1.5" stroke-linecap="square"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="nxr-what__card nxr-reveal">
+        <div class="nxr-what__img-wrap">
+          <img class="nxr-what__img nxr-img" data-nxr="images/power-houses.png" alt="Power houses" loading="lazy">
+        </div>
+        <div class="nxr-what__body">
+          <h3 class="nxr-what__title">Power Houses</h3>
+          <ul class="nxr-what__list">
+            <li>Containerized power houses</li>
+            <li>Integrated electrical systems</li>
+            <li>Medium-voltage distribution</li>
+            <li>SCADA and automation systems</li>
+            <li>Turnkey modular infrastructure</li>
+          </ul>
+          <div class="nxr-what__cta">
+            <a href="#contact" class="nxr-what__link">Learn more
+              <svg width="24" height="10" viewBox="0 0 24 10" fill="none" aria-hidden="true"><path d="M19 1L23 5L19 9M1 5H23" stroke="#64B700" stroke-width="1.5" stroke-linecap="square"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="nxr-what__card nxr-reveal">
+        <div class="nxr-what__img-wrap">
+          <img class="nxr-what__img nxr-img" data-nxr="images/microgrids-and-hybrid-solutions.png" alt="Microgrids and hybrid solutions" loading="lazy">
+        </div>
+        <div class="nxr-what__body">
+          <h3 class="nxr-what__title">Microgrids</h3>
+          <ul class="nxr-what__list">
+            <li>Hybrid power systems</li>
+            <li>Renewable integration &amp; BESS</li>
+            <li>Intelligent load management</li>
+            <li>Mobile substation</li>
+            <li>Energy monitoring platforms</li>
+          </ul>
+          <div class="nxr-what__cta">
+            <a href="#contact" class="nxr-what__link">Learn more
+              <svg width="24" height="10" viewBox="0 0 24 10" fill="none" aria-hidden="true"><path d="M19 1L23 5L19 9M1 5H23" stroke="#64B700" stroke-width="1.5" stroke-linecap="square"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="nxr-what__card nxr-reveal">
+        <div class="nxr-what__img-wrap">
+          <img class="nxr-what__img nxr-img" data-nxr="images/custom-electrical-solutions.png" alt="Custom electrical solutions" loading="lazy">
+        </div>
+        <div class="nxr-what__body">
+          <h3 class="nxr-what__title">Custom Solutions</h3>
+          <ul class="nxr-what__list">
+            <li>Custom electrical integration</li>
+            <li>Specialized power configurations</li>
+            <li>Site-specific engineering</li>
+            <li>Tailored industrial solutions</li>
+          </ul>
+          <div class="nxr-what__cta">
+            <a href="#contact" class="nxr-what__link">Learn more
+              <svg width="24" height="10" viewBox="0 0 24 10" fill="none" aria-hidden="true"><path d="M19 1L23 5L19 9M1 5H23" stroke="#64B700" stroke-width="1.5" stroke-linecap="square"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════
+     SECTION 3: APP — Tried and tested in the field and on site.
+══════════════════════════════════════════════════════════════ -->
+<section class="nxr-section nxr-app" id="nexara-applications">
+  <div class="nxr-container nxr-container--narrow">
+    <div class="nxr-section-header nxr-section-header--center">
+      <h2 class="nxr-h2"><span class="nxr-accent">Tried and tested</span> in the field and on site.</h2>
+      <p class="nxr-subtitle">See the table below to perform a quick operational needs analysis:</p>
+    </div>
+
+    <div class="nxr-app__scroll">
+      <table class="nxr-app__table" id="nxrAppTable">
+        <thead>
+          <tr>
+            <th class="nxr-app__th nxr-app__th--app">Application</th>
+            <th class="nxr-app__th">Onsite<br>Generation</th>
+            <th class="nxr-app__th">Power<br>Houses</th>
+            <th class="nxr-app__th">Microgrids</th>
+            <th class="nxr-app__th">Custom<br>Solutions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="nxr-app__row">
+            <td class="nxr-app__td nxr-app__td--label">Drilling Operations</td>
+            <td class="nxr-app__td nxr-app__td--cell"><img class="nxr-app__logo nxr-img" data-nxr="components/logos/nexara-logo-pictorial-teal.svg" alt="Supported" loading="lazy"></td>
+            <td class="nxr-app__td nxr-app__td--cell"></td>
+            <td class="nxr-app__td nxr-app__td--cell"></td>
+            <td class="nxr-app__td nxr-app__td--cell"><img class="nxr-app__logo nxr-img" data-nxr="components/logos/nexara-logo-pictorial-orange.svg" alt="Supported" loading="lazy"></td>
+          </tr>
+          <tr class="nxr-app__row nxr-app__row--alt">
+            <td class="nxr-app__td nxr-app__td--label">Production Facilities</td>
+            <td class="nxr-app__td nxr-app__td--cell"><img class="nxr-app__logo nxr-img" data-nxr="components/logos/nexara-logo-pictorial-teal.svg" alt="Supported" loading="lazy"></td>
+            <td class="nxr-app__td nxr-app__td--cell"><img class="nxr-app__logo nxr-img" data-nxr="components/logos/nexara-logo-pictorial-green.svg" alt="Supported" loading="lazy"></td>
+            <td class="nxr-app__td nxr-app__td--cell"><img class="nxr-app__logo nxr-img" data-nxr="components/logos/nexara-logo-pictorial-light-blue.svg" alt="Supported" loading="lazy"></td>
+            <td class="nxr-app__td nxr-app__td--cell"><img class="nxr-app__logo nxr-img" data-nxr="components/logos/nexara-logo-pictorial-orange.svg" alt="Supported" loading="lazy"></td>
+          </tr>
+          <tr class="nxr-app__row">
+            <td class="nxr-app__td nxr-app__td--label">Mining Operations</td>
+            <td class="nxr-app__td nxr-app__td--cell"><img class="nxr-app__logo nxr-img" data-nxr="components/logos/nexara-logo-pictorial-teal.svg" alt="Supported" loading="lazy"></td>
+            <td class="nxr-app__td nxr-app__td--cell"><img class="nxr-app__logo nxr-img" data-nxr="components/logos/nexara-logo-pictorial-green.svg" alt="Supported" loading="lazy"></td>
+            <td class="nxr-app__td nxr-app__td--cell"><img class="nxr-app__logo nxr-img" data-nxr="components/logos/nexara-logo-pictorial-light-blue.svg" alt="Supported" loading="lazy"></td>
+            <td class="nxr-app__td nxr-app__td--cell"><img class="nxr-app__logo nxr-img" data-nxr="components/logos/nexara-logo-pictorial-orange.svg" alt="Supported" loading="lazy"></td>
+          </tr>
+          <tr class="nxr-app__row nxr-app__row--alt">
+            <td class="nxr-app__td nxr-app__td--label">Remote Camps</td>
+            <td class="nxr-app__td nxr-app__td--cell"><img class="nxr-app__logo nxr-img" data-nxr="components/logos/nexara-logo-pictorial-teal.svg" alt="Supported" loading="lazy"></td>
+            <td class="nxr-app__td nxr-app__td--cell"><img class="nxr-app__logo nxr-img" data-nxr="components/logos/nexara-logo-pictorial-green.svg" alt="Supported" loading="lazy"></td>
+            <td class="nxr-app__td nxr-app__td--cell"><img class="nxr-app__logo nxr-img" data-nxr="components/logos/nexara-logo-pictorial-light-blue.svg" alt="Supported" loading="lazy"></td>
+            <td class="nxr-app__td nxr-app__td--cell"></td>
+          </tr>
+          <tr class="nxr-app__row">
+            <td class="nxr-app__td nxr-app__td--label">Midstream Infrastructure</td>
+            <td class="nxr-app__td nxr-app__td--cell"><img class="nxr-app__logo nxr-img" data-nxr="components/logos/nexara-logo-pictorial-teal.svg" alt="Supported" loading="lazy"></td>
+            <td class="nxr-app__td nxr-app__td--cell"><img class="nxr-app__logo nxr-img" data-nxr="components/logos/nexara-logo-pictorial-green.svg" alt="Supported" loading="lazy"></td>
+            <td class="nxr-app__td nxr-app__td--cell"></td>
+            <td class="nxr-app__td nxr-app__td--cell"><img class="nxr-app__logo nxr-img" data-nxr="components/logos/nexara-logo-pictorial-orange.svg" alt="Supported" loading="lazy"></td>
+          </tr>
+          <tr class="nxr-app__row nxr-app__row--alt">
+            <td class="nxr-app__td nxr-app__td--label">Backup / Emergency Power</td>
+            <td class="nxr-app__td nxr-app__td--cell"><img class="nxr-app__logo nxr-img" data-nxr="components/logos/nexara-logo-pictorial-teal.svg" alt="Supported" loading="lazy"></td>
+            <td class="nxr-app__td nxr-app__td--cell"><img class="nxr-app__logo nxr-img" data-nxr="components/logos/nexara-logo-pictorial-green.svg" alt="Supported" loading="lazy"></td>
+            <td class="nxr-app__td nxr-app__td--cell"><img class="nxr-app__logo nxr-img" data-nxr="components/logos/nexara-logo-pictorial-light-blue.svg" alt="Supported" loading="lazy"></td>
+            <td class="nxr-app__td nxr-app__td--cell"></td>
+          </tr>
+          <tr class="nxr-app__row">
+            <td class="nxr-app__td nxr-app__td--label">Hybrid Power Integration</td>
+            <td class="nxr-app__td nxr-app__td--cell"></td>
+            <td class="nxr-app__td nxr-app__td--cell"></td>
+            <td class="nxr-app__td nxr-app__td--cell"><img class="nxr-app__logo nxr-img" data-nxr="components/logos/nexara-logo-pictorial-light-blue.svg" alt="Supported" loading="lazy"></td>
+            <td class="nxr-app__td nxr-app__td--cell"><img class="nxr-app__logo nxr-img" data-nxr="components/logos/nexara-logo-pictorial-orange.svg" alt="Supported" loading="lazy"></td>
+          </tr>
+          <tr class="nxr-app__row nxr-app__row--alt">
+            <td class="nxr-app__td nxr-app__td--label">Field Dev. Support</td>
+            <td class="nxr-app__td nxr-app__td--cell"></td>
+            <td class="nxr-app__td nxr-app__td--cell"><img class="nxr-app__logo nxr-img" data-nxr="components/logos/nexara-logo-pictorial-green.svg" alt="Supported" loading="lazy"></td>
+            <td class="nxr-app__td nxr-app__td--cell"><img class="nxr-app__logo nxr-img" data-nxr="components/logos/nexara-logo-pictorial-light-blue.svg" alt="Supported" loading="lazy"></td>
+            <td class="nxr-app__td nxr-app__td--cell"><img class="nxr-app__logo nxr-img" data-nxr="components/logos/nexara-logo-pictorial-orange.svg" alt="Supported" loading="lazy"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════
+     SECTION 4: LIFECYCLE — Full life-cycle support.
+══════════════════════════════════════════════════════════════ -->
+<section class="nxr-section nxr-lc" id="nexara-lifecycle">
+  <div class="nxr-container">
+    <div class="nxr-section-header">
+      <h2 class="nxr-h2">Full life-cycle <span class="nxr-accent">support.</span></h2>
+      <p class="nxr-subtitle">End-to-end coordination from equipment manufacturing to field support and lifecycle services.</p>
+    </div>
+
+    <!-- Timeline -->
+    <div class="nxr-lc__timeline">
+      <div class="nxr-lc__track">
+        <div class="nxr-lc__track-fill" id="nxrLcTrack"></div>
+      </div>
+      <div class="nxr-lc__steps">
+        <button class="nxr-lc__step nxr-active" data-lc="0" type="button" aria-label="Manufacturing and Integration">
+          <span class="nxr-lc__circle">
+            <img class="nxr-lc__ico nxr-img" data-nxr="components/icons/manufacturing-icon.svg" width="36" height="36" alt="" loading="lazy">
+          </span>
+        </button>
+        <button class="nxr-lc__step" data-lc="1" type="button" aria-label="Transportation">
+          <span class="nxr-lc__circle">
+            <img class="nxr-lc__ico nxr-img" data-nxr="components/icons/truck-icon.svg" width="36" height="36" alt="" loading="lazy">
+          </span>
+        </button>
+        <button class="nxr-lc__step" data-lc="2" type="button" aria-label="Installation">
+          <span class="nxr-lc__circle">
+            <img class="nxr-lc__ico nxr-img" data-nxr="components/icons/hard-hat-icon.svg" width="36" height="36" alt="" loading="lazy">
+          </span>
+        </button>
+        <button class="nxr-lc__step" data-lc="3" type="button" aria-label="Commissioning">
+          <span class="nxr-lc__circle">
+            <img class="nxr-lc__ico nxr-img" data-nxr="components/icons/checklist-icon.svg" width="36" height="36" alt="" loading="lazy">
+          </span>
+        </button>
+        <button class="nxr-lc__step" data-lc="4" type="button" aria-label="After-Sales Support">
+          <span class="nxr-lc__circle">
+            <img class="nxr-lc__ico nxr-img" data-nxr="components/icons/tool-icon.svg" width="36" height="36" alt="" loading="lazy">
+          </span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Content panel -->
+    <div class="nxr-lc__content">
+      <div class="nxr-lc__copy-col">
+        <h3 id="nxrLcTitle" class="nxr-lc__step-title"></h3>
+        <p id="nxrLcBody" class="nxr-lc__step-body"></p>
+        <a href="#contact" class="nxr-btn nxr-btn--outline">Power Your Project</a>
+      </div>
+      <div class="nxr-lc__photo-col">
+        <img id="nxrLcImg" class="nxr-lc__photo nxr-img" data-nxr="images/power-houses.png" alt="Nexara lifecycle support" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════
+     SECTION 5: VALUES — Our five pillars of value.
+══════════════════════════════════════════════════════════════ -->
+<section class="nxr-section nxr-val" id="nexara-values">
+  <div class="nxr-container">
+    <div class="nxr-section-header nxr-section-header--center">
+      <h2 class="nxr-h2">Our five pillars of <span class="nxr-accent">value.</span></h2>
+      <p class="nxr-subtitle nxr-subtitle--center">We believe that reliable power solutions should be designed around the realities of complex operations.</p>
+    </div>
+
+    <div class="nxr-val__grid">
+      <div class="nxr-val__card nxr-reveal">
+        <div class="nxr-val__card-top">
+          <span class="nxr-val__num" aria-hidden="true">1</span>
+          <h3 class="nxr-val__title">Built to Adapt.</h3>
+        </div>
+        <ul class="nxr-val__list">
+          <li>Scalable configurations</li>
+          <li>Technology and fuel agnostic solutions</li>
+          <li>Modular deployment</li>
+          <li>Purpose-driven design</li>
+        </ul>
+      </div>
+
+      <div class="nxr-val__card nxr-reveal">
+        <div class="nxr-val__card-top">
+          <span class="nxr-val__num" aria-hidden="true">2</span>
+          <h3 class="nxr-val__title">No Delays.</h3>
+        </div>
+        <ul class="nxr-val__list">
+          <li>Coordinated sourcing</li>
+          <li>Responsive field deployment</li>
+          <li>Logistics planning</li>
+          <li>Aligned execution partners</li>
+        </ul>
+      </div>
+
+      <div class="nxr-val__card nxr-reveal">
+        <div class="nxr-val__card-top">
+          <span class="nxr-val__num" aria-hidden="true">3</span>
+          <h3 class="nxr-val__title">Experience.</h3>
+        </div>
+        <ul class="nxr-val__list">
+          <li>Operational familiarity</li>
+          <li>Hands-on experience</li>
+          <li>Specialized technical depth</li>
+          <li>Experience in remote areas</li>
+        </ul>
+      </div>
+
+      <div class="nxr-val__card nxr-reveal">
+        <div class="nxr-val__card-top">
+          <span class="nxr-val__num" aria-hidden="true">4</span>
+          <h3 class="nxr-val__title">Clear Alignment.</h3>
+        </div>
+        <ul class="nxr-val__list">
+          <li>Simplified communication</li>
+          <li>Centralized vendor management</li>
+          <li>Reduced complexity</li>
+          <li>Clear accountability</li>
+        </ul>
+      </div>
+
+      <div class="nxr-val__card nxr-reveal">
+        <div class="nxr-val__card-top">
+          <span class="nxr-val__num" aria-hidden="true">5</span>
+          <h3 class="nxr-val__title">Reliable &amp; Scalable.</h3>
+        </div>
+        <ul class="nxr-val__list">
+          <li>Proven equipment</li>
+          <li>Continuous-duty capability</li>
+          <li>Modular expansion</li>
+          <li>Operational adaptability</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════
+     STYLES
+══════════════════════════════════════════════════════════════ -->
+<style>
+/* ── Reset (scoped to nxr- elements) ────────────────────────── */
+.nxr-section *, .nxr-section *::before, .nxr-section *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.nxr-section button { cursor: pointer; font-family: inherit; }
+.nxr-section ul { list-style: none; }
+.nxr-section a { text-decoration: none; }
+.nxr-section img { display: block; max-width: 100%; }
+
+/* ── Shared tokens ────────────────────────────────────────────── */
+:root {
+  --nxr-green:   #64B700;
+  --nxr-blue:    #042648;
+  --nxr-white:   #FCFCFC;
+  --nxr-text:    #5C5C5C;
+  --nxr-gray:    #9E9E9E;
+  --nxr-lt:      #F5F5F5;
+  --nxr-ff:      'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* ── Section base ─────────────────────────────────────────────── */
+.nxr-section {
+  background: var(--nxr-white);
+  padding: 96px max(24px, 5vw);
+  font-family: var(--nxr-ff);
+  -webkit-font-smoothing: antialiased;
+  color: var(--nxr-text);
+}
+
+.nxr-container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.nxr-container--narrow {
+  max-width: 1240px;
+}
+
+/* ── Section header ───────────────────────────────────────────── */
+.nxr-section-header {
+  margin-bottom: 56px;
+}
+.nxr-section-header--center {
+  text-align: center;
+}
+
+.nxr-h2 {
+  font-size: clamp(34px, 4.5vw, 60px);
+  font-weight: 300;
+  line-height: 1.25;
+  color: var(--nxr-blue);
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+.nxr-accent { color: var(--nxr-green); }
+
+.nxr-subtitle {
+  font-size: clamp(16px, 1.7vw, 22px);
+  font-weight: 400;
+  line-height: 1.65;
+  color: var(--nxr-text);
+  max-width: 720px;
+}
+.nxr-subtitle--center {
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* ── Shared button ────────────────────────────────────────────── */
+.nxr-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 18px 32px;
+  background: var(--nxr-green);
+  color: #fff;
+  font-family: var(--nxr-ff);
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  border: none;
+  transition: opacity 0.2s;
+}
+.nxr-btn:hover { opacity: 0.88; }
+.nxr-btn--outline {
+  background: transparent;
+  border: 2px solid var(--nxr-green);
+  color: var(--nxr-green);
+}
+.nxr-btn--outline:hover { background: var(--nxr-green); color: #fff; }
+
+/* ── Reveal animation ─────────────────────────────────────────── */
+.nxr-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.nxr-reveal.nxr-visible {
+  opacity: 1;
+  transform: none;
+}
+
+
+/* ════════════════════════════════════════════════════════════════
+   HOW SECTION
+════════════════════════════════════════════════════════════════ */
+.nxr-how__widget {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  min-height: 455px;
+}
+
+/* Left menu */
+.nxr-how__left {
+  flex: 0 0 auto;
+  width: 400px;
+  display: flex;
+  position: relative;
+}
+.nxr-how__menu {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding-right: 0;
+}
+.nxr-how__divider {
+  width: 1px;
+  background: #E0E0E0;
+  flex: 0 0 1px;
+  margin-left: 0;
+}
+.nxr-how__item {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 12px 24px 12px 0;
+  width: 100%;
+  transition: color 0.2s;
+}
+.nxr-how__circle {
+  flex: 0 0 50px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid var(--nxr-gray);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--nxr-gray);
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+.nxr-how__item.nxr-active .nxr-how__circle {
+  background: var(--nxr-blue);
+  border-color: var(--nxr-blue);
+  color: #fff;
+}
+.nxr-how__item-label {
+  font-size: clamp(15px, 1.4vw, 18px);
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--nxr-gray);
+  transition: color 0.2s;
+}
+.nxr-how__item.nxr-active .nxr-how__item-label {
+  color: var(--nxr-blue);
+  font-weight: 500;
+}
+
+/* Right content panel */
+.nxr-how__right {
+  flex: 1;
+  display: flex;
+  gap: 40px;
+  padding-left: 48px;
+  align-items: stretch;
+}
+.nxr-how__photo-col {
+  flex: 0 0 395px;
+  overflow: hidden;
+}
+.nxr-how__photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  clip-path: polygon(0 0, calc(100% - 24px) 0, 100% 100%, 0 100%);
+}
+.nxr-how__copy-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 24px;
+  gap: 20px;
+}
+.nxr-how__step-title {
+  font-size: clamp(18px, 1.8vw, 24px);
+  font-weight: 300;
+  line-height: 1.35;
+  color: var(--nxr-blue);
+}
+.nxr-how__step-body {
+  font-size: clamp(15px, 1.3vw, 18px);
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--nxr-text);
+}
+.nxr-how__icon-row {
+  display: flex;
+  gap: 24px;
+}
+.nxr-how__icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 115px;
+  text-align: center;
+}
+.nxr-how__icon img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  filter: brightness(0) opacity(0.62);
+}
+.nxr-how__icon-cap {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--nxr-text);
+}
+
+/* HOW section content fade transition */
+.nxr-how__copy-col,
+.nxr-how__photo-col { transition: opacity 0.2s ease; }
+.nxr-how__fading { opacity: 0; }
+
+
+/* ════════════════════════════════════════════════════════════════
+   WHAT SECTION
+════════════════════════════════════════════════════════════════ */
+.nxr-what { background: var(--nxr-white); }
+.nxr-what__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+.nxr-what__card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #E8E8E8;
+}
+.nxr-what__img-wrap {
+  height: 200px;
+  overflow: hidden;
+}
+.nxr-what__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.nxr-what__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+}
+.nxr-what__title {
+  font-size: clamp(16px, 1.4vw, 20px);
+  font-weight: 500;
+  color: var(--nxr-blue);
+  margin-bottom: 16px;
+}
+.nxr-what__list {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+.nxr-what__list li {
+  font-size: clamp(13px, 1.1vw, 15px);
+  font-weight: 400;
+  line-height: 1.55;
+  color: var(--nxr-text);
+  padding-left: 14px;
+  position: relative;
+}
+.nxr-what__list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.7em;
+  width: 5px;
+  height: 1px;
+  background: var(--nxr-green);
+}
+.nxr-what__cta { margin-top: auto; }
+.nxr-what__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--nxr-green);
+}
+.nxr-what__link svg { flex-shrink: 0; }
+
+
+/* ════════════════════════════════════════════════════════════════
+   APPLICATION SECTION
+════════════════════════════════════════════════════════════════ */
+.nxr-app { background: var(--nxr-white); }
+.nxr-app__scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.nxr-app__table {
+  width: 100%;
+  min-width: 700px;
+  border-collapse: collapse;
+}
+.nxr-app__th {
+  background: var(--nxr-blue);
+  color: #fff;
+  font-size: clamp(13px, 1.1vw, 15px);
+  font-weight: 400;
+  padding: 16px 12px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 1.4;
+}
+.nxr-app__th--app {
+  text-align: left;
+  padding-left: 24px;
+  width: 26%;
+}
+.nxr-app__td {
+  padding: 14px 12px;
+  vertical-align: middle;
+  border-bottom: 1px solid #EBEBEB;
+}
+.nxr-app__td--label {
+  font-size: clamp(13px, 1.1vw, 15px);
+  font-weight: 400;
+  color: var(--nxr-text);
+  padding-left: 24px;
+}
+.nxr-app__td--cell {
+  text-align: center;
+}
+.nxr-app__row--alt { background: #F8F8F8; }
+.nxr-app__logo {
+  width: 52px;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+}
+
+
+/* ════════════════════════════════════════════════════════════════
+   LIFECYCLE SECTION
+════════════════════════════════════════════════════════════════ */
+.nxr-lc { background: var(--nxr-white); }
+
+/* Timeline */
+.nxr-lc__timeline {
+  position: relative;
+  margin-bottom: 56px;
+}
+.nxr-lc__track {
+  position: absolute;
+  top: 37px;
+  left: 37px;
+  right: 37px;
+  height: 2px;
+  background: #E0E0E0;
+  z-index: 0;
+}
+.nxr-lc__track-fill {
+  height: 100%;
+  background: var(--nxr-green);
+  width: 0%;
+  transition: width 0.35s ease;
+}
+.nxr-lc__steps {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+}
+.nxr-lc__step {
+  background: none;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+}
+.nxr-lc__circle {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  border: 2px solid #E0E0E0;
+  background: var(--nxr-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, border-color 0.2s;
+}
+.nxr-lc__ico {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  filter: brightness(0) opacity(0.45);
+  transition: filter 0.2s;
+}
+.nxr-lc__step.nxr-active .nxr-lc__circle {
+  background: var(--nxr-blue);
+  border-color: var(--nxr-blue);
+}
+.nxr-lc__step.nxr-active .nxr-lc__ico {
+  filter: brightness(0) invert(1);
+}
+
+/* Content panel */
+.nxr-lc__content {
+  display: flex;
+  gap: 56px;
+  align-items: center;
+}
+.nxr-lc__copy-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.nxr-lc__step-title {
+  font-size: clamp(22px, 2.2vw, 32px);
+  font-weight: 300;
+  line-height: 1.3;
+  color: var(--nxr-blue);
+}
+.nxr-lc__step-body {
+  font-size: clamp(15px, 1.3vw, 18px);
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--nxr-text);
+  max-width: 520px;
+}
+.nxr-lc__photo-col {
+  flex: 0 0 520px;
+  overflow: hidden;
+}
+.nxr-lc__photo {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+}
+
+/* Lifecycle content fade */
+.nxr-lc__fading { opacity: 0; transition: opacity 0.15s ease; }
+.nxr-lc__copy-col, .nxr-lc__photo-col { transition: opacity 0.2s ease; }
+
+
+/* ════════════════════════════════════════════════════════════════
+   VALUES SECTION
+════════════════════════════════════════════════════════════════ */
+.nxr-val { background: #F2F2F2; }
+.nxr-val__grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 24px;
+}
+.nxr-val__card {
+  background: var(--nxr-white);
+  padding: 28px 24px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.nxr-val__card-top {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.nxr-val__num {
+  flex: 0 0 50px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--nxr-blue);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 400;
+}
+.nxr-val__title {
+  font-size: clamp(15px, 1.3vw, 18px);
+  font-weight: 500;
+  color: var(--nxr-blue);
+  line-height: 1.3;
+}
+.nxr-val__list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.nxr-val__list li {
+  font-size: clamp(13px, 1.05vw, 15px);
+  font-weight: 400;
+  line-height: 1.55;
+  color: var(--nxr-text);
+  padding-left: 14px;
+  position: relative;
+}
+.nxr-val__list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.7em;
+  width: 5px;
+  height: 1px;
+  background: var(--nxr-green);
+}
+
+
+/* ════════════════════════════════════════════════════════════════
+   RESPONSIVE — TABLET (≤1100px)
+════════════════════════════════════════════════════════════════ */
+@media (max-width: 1100px) {
+  /* HOW */
+  .nxr-how__widget { flex-direction: column; min-height: auto; }
+  .nxr-how__left { width: 100%; }
+  .nxr-how__menu { flex-direction: row; flex-wrap: wrap; gap: 8px; padding-bottom: 24px; }
+  .nxr-how__item { width: auto; flex: 1; min-width: 140px; flex-direction: column; align-items: center; gap: 8px; padding: 12px; }
+  .nxr-how__item-label { font-size: 13px; text-align: center; }
+  .nxr-how__divider { display: none; }
+  .nxr-how__right { flex-direction: column; padding-left: 0; gap: 24px; }
+  .nxr-how__photo-col { flex: none; height: 260px; }
+  .nxr-how__photo { clip-path: none; }
+  .nxr-how__copy-col { padding-top: 0; }
+
+  /* WHAT */
+  .nxr-what__grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* VAL */
+  .nxr-val__grid { grid-template-columns: repeat(3, 1fr); }
+
+  /* LC */
+  .nxr-lc__content { flex-direction: column; gap: 32px; }
+  .nxr-lc__photo-col { flex: none; width: 100%; }
+  .nxr-lc__photo { height: 240px; }
+}
+
+/* ════════════════════════════════════════════════════════════════
+   RESPONSIVE — MOBILE (≤599px)
+════════════════════════════════════════════════════════════════ */
+@media (max-width: 599px) {
+  .nxr-section { padding-top: 64px; padding-bottom: 64px; }
+
+  /* HOW — accordion-style vertical stack */
+  .nxr-how__menu { flex-direction: column; gap: 0; }
+  .nxr-how__item { flex-direction: row; width: 100%; border-bottom: 1px solid #EBEBEB; padding: 16px 0; }
+  .nxr-how__item-label { text-align: left; }
+  .nxr-how__icon-row { flex-wrap: wrap; }
+
+  /* WHAT */
+  .nxr-what__grid { grid-template-columns: 1fr; }
+
+  /* VAL */
+  .nxr-val__grid { grid-template-columns: 1fr; }
+
+  /* LC */
+  .nxr-lc__step .nxr-lc__circle { width: 56px; height: 56px; }
+  .nxr-lc__ico { width: 28px; height: 28px; }
+  .nxr-lc__track { top: 28px; left: 28px; right: 28px; }
+}
+
+/* ── Reduced motion ────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .nxr-reveal,
+  .nxr-lc__track-fill,
+  .nxr-how__copy-col,
+  .nxr-how__photo-col,
+  .nxr-lc__copy-col,
+  .nxr-lc__photo-col { transition: none !important; }
+  .nxr-reveal { opacity: 1; transform: none; }
+}
+</style>
+
+
+<!-- ══════════════════════════════════════════════════════════════
+     SCRIPT
+══════════════════════════════════════════════════════════════ -->
+<script>
+(function () {
+  'use strict';
+
+  /* ── CONFIGURE: Set your GitHub raw content base URL ─────────
+     Example:
+     var NXR_BASE = 'https://raw.githubusercontent.com/nexara-energy/nexara-energy-website/main';
+  ──────────────────────────────────────────────────────────── */
+  var NXR_BASE = 'https://raw.githubusercontent.com/YOUR_ORG/nexara-energy-website/main';
+
+  /* ── Inject image sources ──────────────────────────────────── */
+  function loadImages() {
+    var imgs = document.querySelectorAll('.nxr-img[data-nxr]');
+    for (var i = 0; i < imgs.length; i++) {
+      imgs[i].src = NXR_BASE + '/' + imgs[i].getAttribute('data-nxr');
+    }
+  }
+
+  /* ── HOW section data ──────────────────────────────────────── */
+  var HOW_STEPS = [
+    {
+      title:    'Integrated power, done right.',
+      body:     'Nexara takes care of the generation, infrastructure, microgrids & electrical systems and any specialized engineering to fill the gaps.',
+      icons:    ['plug-icon', 'puzzle-piece-icon', 'tool-icon'],
+      captions: ['Reliable Power', 'System Integration', 'Engineering Support'],
+      btn:      'Integrate Power'
+    },
+    {
+      title:    'Power deployment without friction.',
+      body:     'We understand logistics can be challenging, so we take lead on coordinating transportation, trade coordination, mobilization planning and delivery execution.',
+      icons:    ['fast-mobilization-icon', 'fewer-delays-icon', 'clear-coordination-icon'],
+      captions: ['Faster Mobilization', 'Fewer Delays', 'Clear Coordination'],
+      btn:      'Deploy Power'
+    },
+    {
+      title:    'Execution where it matters most.',
+      body:     "We're there side by side through installation support, integration assistance, commissioning, and ongoing operations coordination.",
+      icons:    ['smooth-startup-icon', 'reduced-risk-icon', 'field-confidence-icon'],
+      captions: ['Smooth Startup', 'Reduced Risk', 'Field Confidence'],
+      btn:      'Execute On Site'
+    },
+    {
+      title:    'Built for how you operate.',
+      body:     'Every job site is unique. We provide custom solutions, requirement-driven execution and prioritize mission-critical environments.',
+      icons:    ['flexibility-icon', 'scalable-growth-icon', 'mission-ready-icon'],
+      captions: ['Operational Flexibility', 'Scalable Growth', 'Mission Ready'],
+      btn:      'Build Your Solution'
+    }
+  ];
+
+  /* ── Lifecycle section data ────────────────────────────────── */
+  var LC_STEPS = [
+    {
+      title: 'Manufacturing & Integration',
+      body:  'Our team ensures the correct equipment gets manufactured, tested, integrated and passes all necessary quality checks.'
+    },
+    {
+      title: 'Transportation & Logistics',
+      body:  'We coordinate all transportation, customs, and logistics required to get equipment safely to the job site.'
+    },
+    {
+      title: 'Site Installation',
+      body:  'Our experienced teams handle the full installation, ensuring the system is set up to spec and ready for commissioning.'
+    },
+    {
+      title: 'Commissioning',
+      body:  'We verify all systems are fully operational, tested, and meet performance requirements before handover.'
+    },
+    {
+      title: 'After-Sales Support',
+      body:  'Ongoing operations coordination, maintenance support, and rapid response to keep your systems running.'
+    }
+  ];
+
+  /* ── HOW section logic ─────────────────────────────────────── */
+  function initHow() {
+    var items    = document.querySelectorAll('.nxr-how__item');
+    var titleEl  = document.getElementById('nxrHowTitle');
+    var bodyEl   = document.getElementById('nxrHowBody');
+    var iconRow  = document.getElementById('nxrHowIcons');
+    var btnEl    = document.getElementById('nxrHowBtn');
+    var copyCol  = document.querySelector('.nxr-how__copy-col');
+    var photoCol = document.querySelector('.nxr-how__photo-col');
+
+    if (!titleEl) return;
+
+    function setStep(idx) {
+      var s = HOW_STEPS[idx];
+      /* Fade out */
+      copyCol.classList.add('nxr-how__fading');
+      setTimeout(function () {
+        titleEl.textContent = s.title;
+        bodyEl.textContent  = s.body;
+        btnEl.textContent   = s.btn;
+        /* Build icon row */
+        iconRow.innerHTML = s.icons.map(function (ico, j) {
+          return '<div class="nxr-how__icon">' +
+            '<img src="' + NXR_BASE + '/components/icons/' + ico + '.svg" width="50" height="50" alt="" loading="lazy">' +
+            '<span class="nxr-how__icon-cap">' + s.captions[j] + '</span>' +
+          '</div>';
+        }).join('');
+        /* Update active menu item */
+        for (var i = 0; i < items.length; i++) {
+          items[i].classList.toggle('nxr-active', i === idx);
+          items[i].setAttribute('aria-pressed', i === idx ? 'true' : 'false');
+        }
+        /* Fade in */
+        copyCol.classList.remove('nxr-how__fading');
+      }, 180);
+    }
+
+    /* Attach click handlers */
+    for (var i = 0; i < items.length; i++) {
+      (function (idx) {
+        items[idx].addEventListener('click', function () { setStep(idx); });
+      }(i));
+    }
+
+    /* Init with step 0 */
+    setStep(0);
+  }
+
+  /* ── Lifecycle section logic ───────────────────────────────── */
+  function initLifecycle() {
+    var steps   = document.querySelectorAll('.nxr-lc__step');
+    var track   = document.getElementById('nxrLcTrack');
+    var titleEl = document.getElementById('nxrLcTitle');
+    var bodyEl  = document.getElementById('nxrLcBody');
+    var copyCol = document.querySelector('.nxr-lc__copy-col');
+
+    if (!titleEl) return;
+
+    function setLcStep(idx) {
+      var s = LC_STEPS[idx];
+      var pct = (idx / (LC_STEPS.length - 1)) * 100;
+      track.style.width = pct + '%';
+
+      copyCol.classList.add('nxr-lc__fading');
+      setTimeout(function () {
+        titleEl.textContent = s.title;
+        bodyEl.textContent  = s.body;
+        for (var i = 0; i < steps.length; i++) {
+          steps[i].classList.toggle('nxr-active', i === idx);
+          steps[i].setAttribute('aria-pressed', i === idx ? 'true' : 'false');
+        }
+        copyCol.classList.remove('nxr-lc__fading');
+      }, 150);
+    }
+
+    for (var i = 0; i < steps.length; i++) {
+      (function (idx) {
+        steps[idx].addEventListener('click', function () { setLcStep(idx); });
+      }(i));
+    }
+
+    setLcStep(0);
+  }
+
+  /* ── Scroll reveal ─────────────────────────────────────────── */
+  function initReveal() {
+    if (!('IntersectionObserver' in window)) {
+      var els = document.querySelectorAll('.nxr-reveal');
+      for (var i = 0; i < els.length; i++) els[i].classList.add('nxr-visible');
+      return;
+    }
+    var obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('nxr-visible');
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    var els = document.querySelectorAll('.nxr-reveal');
+    for (var i = 0; i < els.length; i++) obs.observe(els[i]);
+  }
+
+  /* ── Staggered reveal for card grids ───────────────────────── */
+  function initStagger() {
+    var grids = document.querySelectorAll('.nxr-what__grid, .nxr-val__grid');
+    grids.forEach(function (grid) {
+      var cards = grid.querySelectorAll('.nxr-reveal');
+      cards.forEach(function (card, i) {
+        card.style.transitionDelay = (i * 80) + 'ms';
+      });
+    });
+  }
+
+  /* ── Bootstrap ─────────────────────────────────────────────── */
+  function init() {
+    loadImages();
+    initHow();
+    initLifecycle();
+    initStagger();
+    initReveal();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+}());
+</script>

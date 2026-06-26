@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nexara — Hero Grid Animation Reference</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #FCFCFC;
+      font-family: Inter, system-ui, sans-serif;
+    }
+
+    /* ─── Hero wrapper ─────────────────────────────────────── */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      background-color: #FCFCFC;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ─── Grid layer ────────────────────────────────────────── */
+    /*
+      Extends 60px to the left so translateX(-60px) lands on an
+      identical grid position — making the leftward loop seamless.
+    */
+    .hero-grid {
+      position: absolute;
+      top: 0;
+      left: -60px;   /* overhang for seamless wrap */
+      right: 0;
+      bottom: 0;
+      background-image:
+        linear-gradient(to right, rgba(4, 38, 72, 0.055) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(4, 38, 72, 0.055) 1px, transparent 1px);
+      background-size: 60px 60px;
+      animation: gridMoveLeft 16s linear infinite;
+      will-change: transform;
+    }
+
+    @keyframes gridMoveLeft {
+      from { transform: translateX(0px); }
+      to   { transform: translateX(-60px); }
+    }
+
+    /* ─── Overlay: spotlight + edge fades ──────────────────── */
+    /*
+      Multiple background layers (top → bottom):
+        1–4. Linear fades from each edge → white → transparent
+             These kill the grid at the perimeter cleanly.
+        5.   Oval radial gradient (white, semi-opaque in center)
+             This "washes out" the grid in the oval center zone,
+             simulating a soft overhead light source.
+
+      The radial spotlight uses rgba so it's partially transparent —
+      the grid remains faintly visible beneath it rather than
+      disappearing entirely. Adjust the 0.78 alpha to taste.
+    */
+    .hero-grid-mask {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(to right,  #FCFCFC 0%, transparent 18%),
+        linear-gradient(to left,   #FCFCFC 0%, transparent 18%),
+        linear-gradient(to bottom, #FCFCFC 0%, transparent 14%),
+        linear-gradient(to top,    #FCFCFC 0%, transparent 14%),
+        radial-gradient(
+          ellipse 52% 58% at 50% 50%,
+          rgba(252, 252, 252, 0.78) 0%,
+          rgba(252, 252, 252, 0.00) 100%
+        );
+    }
+
+    /* ─── Demo content (remove in production) ──────────────── */
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      color: #042648;
+    }
+    .hero-content h1 {
+      font-size: 75px;
+      font-weight: 300;
+      line-height: 90px;
+      letter-spacing: -0.5px;
+    }
+    .hero-content p {
+      font-size: 22px;
+      line-height: 40px;
+      color: #5C5C5C;
+      margin-top: 16px;
+    }
+    .hero-content .cta {
+      display: inline-block;
+      margin-top: 32px;
+      padding: 14px 32px;
+      background: #64B700;
+      color: #FCFCFC;
+      font-size: 16px;
+      font-weight: 500;
+      text-decoration: none;
+      letter-spacing: 0.3px;
+      /* no border-radius — brand rule */
+    }
+  </style>
+</head>
+<body>
+  <section class="hero">
+
+    <!-- Grid (animates) -->
+    <div class="hero-grid" aria-hidden="true"></div>
+
+    <!-- Spotlight + edge fade mask (static) -->
+    <div class="hero-grid-mask" aria-hidden="true"></div>
+
+    <!-- Hero content (placeholder) -->
+    <div class="hero-content">
+      <h1>Reliable onsite power<br>for critical operations.</h1>
+      <p>One interface. Clear coordination.</p>
+      <a class="cta" href="#">Get in touch</a>
+    </div>
+
+  </section>
+</body>
+</html>
+
+<!--
+  IMPLEMENTATION NOTES FOR NEXT.JS COMPONENT
+  ────────────────────────────────────────────
+  Convert to a React component with Tailwind where possible:
+
+  Grid lines: Tailwind doesn't have this — keep as inline style or
+  define in globals.css / tailwind.config as a custom bg utility.
+
+  Animation: Define in tailwind.config → theme.extend.keyframes
+  and theme.extend.animation, or use a <style jsx> block.
+
+  Mask overlay: Inline style is simplest since multiple backgrounds
+  can't be expressed in a single Tailwind class.
+
+  Layers:
+    <div className="relative w-full h-screen overflow-hidden bg-[#FCFCFC]">
+      <div aria-hidden className="hero-grid" />    -- grid + animation
+      <div aria-hidden className="hero-grid-mask" /> -- spotlight + fades
+      <div className="relative z-10"> ...content... </div>
+    </div>
+
+  Tuning:
+    - Grid opacity: rgba(4,38,72, X) — increase X to make grid bolder
+    - Spotlight strength: the 0.78 alpha — lower = more grid visible in center
+    - Spotlight size: 52% 58% — widen for a broader light zone
+    - Speed: 16s — increase for slower drift, decrease for faster
+-->

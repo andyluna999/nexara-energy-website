@@ -1,0 +1,106 @@
+<!--
+  Hero stack animation — reference implementation (Squarespace version)
+
+  4 layered PNG assets revealed in sequence using clip-path animations.
+  Each layer animates with cubic-bezier(0.77, 0, 0.175, 1) — a sharp ease-in-out
+  that matches the flat/precise brand feel.
+
+  Animation sequence:
+    0.00s  → layer-top-right  (revealRTL, 0.55s)
+    0.49s  → layer-top-left   (revealRTL, 0.55s)
+    0.98s  → layer-middle     (revealCenter — expands from center outward, 0.55s)
+    1.46s  → layer-bottom     (revealRTL, 0.55s)
+
+  revealRTL:    clip-path sweeps right→left (element enters from the right edge)
+  revealCenter: clip-path expands from 50/50 inset outward to full width
+
+  Layer z-index stack (bottom → top): top-right(1) → top-left(2) → middle(3) → bottom(4)
+  Wrapper uses padding-bottom: 103.4% for aspect-ratio control.
+-->
+
+<div class="hero-stack-wrapper">
+  <!-- Layer 1: Top-right on-site card (lowest) -->
+  <div class="hero-layer layer-top-right">
+    <img src="https://images.squarespace-cdn.com/content/6a114e01635b10025f11bc44/0c69ca05-629e-41d0-9186-951f4c3c28dd/top-right.png?content-type=image%2Fpng" alt="" />
+  </div>
+  <!-- Layer 2: Top-left woman graphic -->
+  <div class="hero-layer layer-top-left">
+    <img src="https://images.squarespace-cdn.com/content/6a114e01635b10025f11bc44/dfe37127-f367-4efa-a7b4-28dd230c6357/top-left.png?content-type=image%2Fpng" alt="" />
+  </div>
+  <!-- Layer 3: Middle main card -->
+  <div class="hero-layer layer-middle">
+    <img src="https://images.squarespace-cdn.com/content/6a114e01635b10025f11bc44/f4b4a7b9-4ca9-45cd-9df2-424e44734c98/middle.png?content-type=image%2Fpng" alt="" />
+  </div>
+  <!-- Layer 4: Bottom green vector (topmost) -->
+  <div class="hero-layer layer-bottom">
+    <img src="https://images.squarespace-cdn.com/content/6a114e01635b10025f11bc44/b2a0edb2-9219-44a4-9485-1101746d16c1/bottom.png?content-type=image%2Fpng" alt="" />
+  </div>
+</div>
+
+<style>
+  .hero-stack-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 760px;
+    padding-bottom: 103.4%;
+    margin: 0 auto;
+    overflow: visible;
+  }
+  .hero-layer {
+    position: absolute;
+  }
+  .hero-layer img {
+    width: 100%;
+    display: block;
+  }
+  .layer-top-right {
+    z-index: 1;
+    left: 35.875%;
+    top: 6.33%;
+    width: 38.75%;
+    clip-path: polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%);
+    animation: revealRTL 0.55s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+    animation-delay: 0s;
+  }
+  .layer-top-left {
+    z-index: 2;
+    left: 2.16%;
+    top: 5.15%;
+    width: 37.69%;
+    clip-path: polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%);
+    animation: revealRTL 0.55s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+    animation-delay: 0.49s;
+  }
+  .layer-middle {
+    z-index: 3;
+    left: 7.025%;
+    top: 27.76%;
+    width: 92.975%;
+    clip-path: inset(0% 50% 0% 50%);
+    animation: revealCenter 0.55s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+    animation-delay: 0.98s;
+  }
+  .layer-bottom {
+    z-index: 4;
+    left: 2.62%;
+    top: 71.38%;
+    width: 80.1%;
+    clip-path: polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%);
+    animation: revealRTL 0.55s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+    animation-delay: 1.46s;
+  }
+  @keyframes revealRTL {
+    0%   { clip-path: polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%); }
+    100% { clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%); }
+  }
+  @keyframes revealCenter {
+    0%   { clip-path: inset(0% 50% 0% 50%); }
+    100% { clip-path: inset(0% 0% 0% 0%); }
+  }
+  @media (max-width: 768px) {
+    .hero-stack-wrapper {
+      max-width: 100%;
+      padding-bottom: 103.4%;
+    }
+  }
+</style>
