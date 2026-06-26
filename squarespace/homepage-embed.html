@@ -1082,6 +1082,8 @@
     color: var(--nxr-blue);
   }
   .nxr-how__icon-row { max-width: none; }
+  /* breathing room between timeline circles and the image below */
+  .nxr-how__left { margin-bottom: 32px; }
 
   /* WHAT — swipeable carousel with arrow controls */
   .nxr-what__grid {
@@ -1089,7 +1091,7 @@
     overflow-x: auto;
     max-width: none;
     margin: 0;
-    gap: 16px;
+    gap: 0;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
@@ -1097,11 +1099,11 @@
   }
   .nxr-what__grid::-webkit-scrollbar { display: none; }
   .nxr-what__card {
-    flex: 0 0 86%;
-    width: 86%;
-    max-width: 360px;
+    flex: 0 0 100%;
+    width: 100%;
+    max-width: none;
     height: auto;
-    scroll-snap-align: center;
+    scroll-snap-align: start;
   }
   .nxr-what__nav { display: flex; }
   .nxr-what__title { font-size: 20px; }
