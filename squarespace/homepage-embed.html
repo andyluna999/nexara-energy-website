@@ -59,7 +59,7 @@
       <!-- Right: content panel -->
       <div class="nxr-how__right">
         <div class="nxr-how__photo-col">
-          <img class="nxr-how__photo nxr-img" data-nxr="images/on-site-power-generators.jpg" alt="Nexara power generation in the field" loading="lazy">
+          <img class="nxr-how__photo nxr-img" data-nxr="images/integrated-power-done-right.jpg" alt="Nexara power generation in the field" loading="lazy">
         </div>
         <div class="nxr-how__copy-col">
           <h3 id="nxrHowTitle" class="nxr-how__step-title"></h3>
@@ -1178,28 +1178,32 @@
       body:     'Nexara takes care of the generation, infrastructure, microgrids & electrical systems and any specialized engineering to fill the gaps.',
       icons:    ['plug-icon', 'folder-icon', 'puzzle-piece-icon'],
       captions: ['Maximize Uptime', 'Fewer Handoffs', 'Right-fit System'],
-      btn:      'Integrate Power'
+      btn:      'Integrate Power',
+      image:    'images/integrated-power-done-right.jpg'
     },
     {
       title:    'Power deployment without friction.',
       body:     'We understand logistics can be challenging, so we take lead on coordinating transportation, trade coordination, mobilization planning and delivery execution.',
       icons:    ['fast-mobilization-icon', 'fewer-delays-icon', 'clear-coordination-icon'],
       captions: ['Faster Mobilization', 'Fewer Delays', 'Clear Coordination'],
-      btn:      'Deploy Power'
+      btn:      'Deploy Power',
+      image:    'images/power-deployment-without-friction.jpg'
     },
     {
       title:    'Execution where it matters most.',
       body:     "We're there side by side through installation support, integration assistance, commissioning, and ongoing operations coordination.",
       icons:    ['smooth-startup-icon', 'reduced-risk-icon', 'field-confidence-icon'],
       captions: ['Smooth Startup', 'Reduced Risk', 'Field Confidence'],
-      btn:      'Execute On Site'
+      btn:      'Execute On Site',
+      image:    'images/execution-where-it-matters-most.jpg'
     },
     {
       title:    'Built for how you operate.',
       body:     'Every job site is unique. We provide custom solutions, requirement-driven execution and prioritize mission-critical environments.',
       icons:    ['flexibility-icon', 'scalable-growth-icon', 'mission-ready-icon'],
       captions: ['Operational Flexibility', 'Scalable Growth', 'Mission Ready'],
-      btn:      'Build Your Solution'
+      btn:      'Build Your Solution',
+      image:    'images/built-for-how-you-operate.jpg'
     }
   ];
 
@@ -1235,31 +1239,37 @@
     var iconRow  = document.getElementById('nxrHowIcons');
     var btnEl    = document.getElementById('nxrHowBtn');
     var copyCol  = document.querySelector('.nxr-how__copy-col');
+    var photoCol = document.querySelector('.nxr-how__photo-col');
+    var photoEl  = document.querySelector('.nxr-how__photo');
 
     if (!bodyEl) return;
 
+    function applyStep(idx) {
+      var s = HOW_STEPS[idx];
+      if (titleEl) titleEl.textContent = s.title;
+      bodyEl.textContent = s.body;
+      btnEl.textContent  = s.btn;
+      if (photoEl && s.image) photoEl.src = NXR_BASE + '/' + s.image;
+      iconRow.innerHTML = s.icons.map(function (ico, j) {
+        return '<div class="nxr-how__icon">' +
+          '<img src="' + NXR_BASE + '/components/icons/' + ico + '.svg" width="35" height="35" alt="" loading="lazy">' +
+          '<span class="nxr-how__icon-cap">' + s.captions[j] + '</span>' +
+        '</div>';
+      }).join('');
+      for (var i = 0; i < items.length; i++) {
+        items[i].classList.toggle('nxr-active', i === idx);
+        items[i].setAttribute('aria-pressed', i === idx ? 'true' : 'false');
+      }
+    }
+
     function setStep(idx) {
       var s = HOW_STEPS[idx];
-      /* Fade out */
       copyCol.classList.add('nxr-how__fading');
+      if (photoCol) photoCol.classList.add('nxr-how__fading');
       setTimeout(function () {
-        if (titleEl) titleEl.textContent = s.title;
-        bodyEl.textContent  = s.body;
-        btnEl.textContent   = s.btn;
-        /* Build icon row */
-        iconRow.innerHTML = s.icons.map(function (ico, j) {
-          return '<div class="nxr-how__icon">' +
-            '<img src="' + NXR_BASE + '/components/icons/' + ico + '.svg" width="35" height="35" alt="" loading="lazy">' +
-            '<span class="nxr-how__icon-cap">' + s.captions[j] + '</span>' +
-          '</div>';
-        }).join('');
-        /* Update active menu item */
-        for (var i = 0; i < items.length; i++) {
-          items[i].classList.toggle('nxr-active', i === idx);
-          items[i].setAttribute('aria-pressed', i === idx ? 'true' : 'false');
-        }
-        /* Fade in */
+        applyStep(idx);
         copyCol.classList.remove('nxr-how__fading');
+        if (photoCol) photoCol.classList.remove('nxr-how__fading');
       }, 180);
     }
 
@@ -1270,8 +1280,8 @@
       }(i));
     }
 
-    /* Init with step 0 */
-    setStep(0);
+    /* Init step 0 immediately — no fade on first paint */
+    applyStep(0);
   }
 
   /*  Lifecycle section logic  */
