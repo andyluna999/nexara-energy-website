@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "Static preview",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["serve", "squarespace", "--no-clipboard", "-l", "4321"],
+      "port": 4321
+    }
+  ]
+}

@@ -21,6 +21,12 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# Claude Code local settings (machine-specific)
+.claude/settings.local.json
+
+# Image optimization backups (originals also preserved in git history)
+images/_originals/
+
 # OS
 .DS_Store
 Thumbs.db

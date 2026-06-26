@@ -1,0 +1,337 @@
+<!--
+  NEXARA — HOW SECTION — Squarespace Code Block Embed
+  ─────────────────────────────────────────────────────
+  Paste this entire file's contents into a Squarespace
+  code block (Edit section → Add Block → Code).
+
+  Self-contained: no framework, no build step.
+  Inter font loaded via Google Fonts (deduplicated by browser
+  if already present from the Squarespace template).
+
+  Animation: IntersectionObserver-triggered, fully respects
+  prefers-reduced-motion. Content visible if JS fails.
+-->
+
+<!-- Inter font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<section class="nxr-how" id="how-nexara-works">
+  <div class="nxr-how__container">
+
+    <header class="nxr-how__header">
+      <h2 class="nxr-how__title">One Interface.<br>Clear Coordination.</h2>
+      <p class="nxr-how__subtitle">Nexara removes complexity by unifying specialized power providers under one coordinated interface</p>
+    </header>
+
+    <div class="nxr-how__rail" id="nxrHowRail">
+
+      <!-- 01 ─ Integrated power -->
+      <div class="nxr-how__pillar" data-i="0">
+        <div class="nxr-how__bar"></div>
+        <span class="nxr-how__num">01</span>
+        <h3 class="nxr-how__heading">Integrated power,<br>done right</h3>
+        <ul class="nxr-how__list">
+          <li>Generation</li>
+          <li>Infrastructure</li>
+          <li>Microgrids &amp; electrical systems</li>
+          <li>Specialized engineering</li>
+        </ul>
+      </div>
+
+      <div class="nxr-how__sep" aria-hidden="true"><div class="nxr-how__sep-line"></div></div>
+
+      <!-- 02 ─ Power deployment -->
+      <div class="nxr-how__pillar" data-i="1">
+        <div class="nxr-how__bar"></div>
+        <span class="nxr-how__num">02</span>
+        <h3 class="nxr-how__heading">Power deployment,<br>without friction</h3>
+        <ul class="nxr-how__list">
+          <li>Transportation</li>
+          <li>Trade coordination</li>
+          <li>Mobilization planning</li>
+          <li>Delivery execution</li>
+        </ul>
+      </div>
+
+      <div class="nxr-how__sep" aria-hidden="true"><div class="nxr-how__sep-line"></div></div>
+
+      <!-- 03 ─ Execution -->
+      <div class="nxr-how__pillar" data-i="2">
+        <div class="nxr-how__bar"></div>
+        <span class="nxr-how__num">03</span>
+        <h3 class="nxr-how__heading">Execution where<br>it matters most</h3>
+        <ul class="nxr-how__list">
+          <li>Installation support</li>
+          <li>Integration assistance</li>
+          <li>Commissioning</li>
+          <li>Ongoing operations coordination</li>
+        </ul>
+      </div>
+
+      <div class="nxr-how__sep" aria-hidden="true"><div class="nxr-how__sep-line"></div></div>
+
+      <!-- 04 ─ Built for operations -->
+      <div class="nxr-how__pillar" data-i="3">
+        <div class="nxr-how__bar"></div>
+        <span class="nxr-how__num">04</span>
+        <h3 class="nxr-how__heading">Built for how<br>you operate</h3>
+        <ul class="nxr-how__list">
+          <li>Custom solutions</li>
+          <li>Requirement-driven execution</li>
+          <li>Built for mission-critical environments</li>
+        </ul>
+      </div>
+
+    </div><!-- /.nxr-how__rail -->
+  </div><!-- /.nxr-how__container -->
+</section>
+
+<style>
+  /* ── Scoped reset (won't affect Squarespace styles) ── */
+  .nxr-how *, .nxr-how *::before, .nxr-how *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* ── Section ─────────────────────────────────────── */
+  .nxr-how {
+    background: #FCFCFC;
+    padding: 100px max(24px, 5vw) 120px;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .nxr-how__container {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  /* ── Header ──────────────────────────────────────── */
+  .nxr-how__header {
+    margin-bottom: 64px;
+  }
+
+  .nxr-how__title {
+    font-size: clamp(36px, 5vw, 60px);
+    font-weight: 300;
+    line-height: 1.25;
+    color: #042648;
+    letter-spacing: -0.02em;
+    word-break: break-word;
+    text-wrap: balance;
+    margin-bottom: 20px;
+  }
+
+  .nxr-how__subtitle {
+    font-size: clamp(16px, 1.8vw, 22px);
+    font-weight: 400;
+    line-height: 1.65;
+    color: #5C5C5C;
+    max-width: 680px;
+  }
+
+  /* ── Rail (desktop: flex row) ────────────────────── */
+  .nxr-how__rail {
+    display: flex;
+    align-items: stretch;
+  }
+
+  /* ── Pillar ──────────────────────────────────────── */
+  .nxr-how__pillar {
+    flex: 1;
+    background: #042648;
+    padding: 40px 32px 52px;
+    min-width: 0; /* prevent flex overflow */
+  }
+
+  /* Green top accent bar */
+  .nxr-how__bar {
+    width: 100%;
+    height: 3px;
+    background: #64B700;
+    margin-bottom: 28px;
+  }
+
+  /* Step number */
+  .nxr-how__num {
+    display: block;
+    font-size: 11px;
+    font-weight: 500;
+    color: #64B700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  /* Pillar heading */
+  .nxr-how__heading {
+    font-size: clamp(17px, 1.65vw, 21px);
+    font-weight: 300;
+    line-height: 1.4;
+    color: #ffffff;
+    margin-bottom: 24px;
+    word-break: break-word;
+  }
+
+  /* Bullet list */
+  .nxr-how__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .nxr-how__list li {
+    font-size: clamp(13px, 1.25vw, 15px);
+    font-weight: 400;
+    line-height: 1.55;
+    color: rgba(252, 252, 252, 0.58);
+    padding-left: 14px;
+    position: relative;
+  }
+
+  /* Green dash bullet */
+  .nxr-how__list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.7em;
+    width: 5px;
+    height: 1px;
+    background: #64B700;
+  }
+
+  /* ── Diagonal separator ──────────────────────────── */
+  .nxr-how__sep {
+    flex: 0 0 0px;
+    position: relative;
+    z-index: 10;
+  }
+
+  .nxr-how__sep-line {
+    position: absolute;
+    top: -14px;
+    left: -1px;
+    width: 1.5px;
+    height: calc(100% + 28px);
+    background: #64B700;
+    transform: rotate(8deg) scaleY(1);
+    transform-origin: center center;
+  }
+
+  /* ── Tablet: 2×2 grid ────────────────────────────── */
+  @media (max-width: 1023px) {
+    .nxr-how__rail {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+    }
+
+    .nxr-how__sep {
+      display: none;
+    }
+
+    .nxr-how__header {
+      margin-bottom: 40px;
+    }
+  }
+
+  /* ── Mobile: single column ───────────────────────── */
+  @media (max-width: 599px) {
+    .nxr-how {
+      padding-top: 72px;
+      padding-bottom: 80px;
+    }
+
+    .nxr-how__rail {
+      grid-template-columns: 1fr;
+    }
+
+    .nxr-how__header {
+      margin-bottom: 32px;
+    }
+
+    .nxr-how__pillar {
+      padding: 32px 24px 36px;
+    }
+  }
+
+  /* ── Reduced motion: show all content instantly ───── */
+  @media (prefers-reduced-motion: reduce) {
+    .nxr-how__pillar {
+      clip-path: none !important;
+      transition: none !important;
+    }
+    .nxr-how__sep-line {
+      transform: rotate(8deg) scaleY(1) !important;
+      transition: none !important;
+    }
+  }
+</style>
+
+<script>
+(function () {
+  'use strict';
+
+  var rail = document.getElementById('nxrHowRail');
+  if (!rail) return;
+
+  // Respect prefers-reduced-motion
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  // Require IntersectionObserver
+  if (!('IntersectionObserver' in window)) return;
+
+  var pillars  = Array.from(rail.querySelectorAll('.nxr-how__pillar'));
+  var sepLines = Array.from(rail.querySelectorAll('.nxr-how__sep-line'));
+  var EASE     = 'cubic-bezier(0.77, 0, 0.175, 1)';  /* same as hero */
+
+  /* ── Set initial hidden states (progressive enhancement) ── */
+  pillars.forEach(function (p) {
+    p.style.clipPath   = 'polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)';
+    p.style.willChange = 'clip-path';
+  });
+  sepLines.forEach(function (l) {
+    l.style.transform  = 'rotate(8deg) scaleY(0)';
+    l.style.willChange = 'transform';
+  });
+
+  /* ── Trigger on intersection ───────────────────────────── */
+  var observer = new IntersectionObserver(function (entries) {
+    if (!entries[0].isIntersecting) return;
+
+    var STAGGER     = 90;   /* ms between each pillar */
+    var PILLAR_DUR  = 550;  /* ms, clip-path transition */
+    var SEP_DELAY   = pillars.length * STAGGER + 80;
+    var SEP_DUR     = 400;
+
+    /* Reveal pillars left → right */
+    pillars.forEach(function (p, i) {
+      setTimeout(function () {
+        p.style.transition = 'clip-path ' + PILLAR_DUR + 'ms ' + EASE;
+        p.style.clipPath   = 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)';
+
+        /* Clean up will-change after animation */
+        setTimeout(function () { p.style.willChange = 'auto'; }, PILLAR_DUR + 50);
+      }, i * STAGGER);
+    });
+
+    /* Reveal diagonal separators after last pillar lands */
+    setTimeout(function () {
+      sepLines.forEach(function (l) {
+        l.style.transition = 'transform ' + SEP_DUR + 'ms ' + EASE;
+        l.style.transform  = 'rotate(8deg) scaleY(1)';
+        setTimeout(function () { l.style.willChange = 'auto'; }, SEP_DUR + 50);
+      });
+    }, SEP_DELAY);
+
+    observer.unobserve(rail);
+  }, { threshold: 0.15 });
+
+  observer.observe(rail);
+}());
+</script>
