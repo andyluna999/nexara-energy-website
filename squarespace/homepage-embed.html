@@ -1,6 +1,6 @@
 <!--
   NEXARA — HOMEPAGE SECTIONS EMBED — Squarespace Code Block
-  ════════════════════════════════════════════════════════════
+
   Paste this entire file's contents into a Squarespace code block.
 
   BEFORE PASTING — one-time setup:
@@ -22,9 +22,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-<!-- ══════════════════════════════════════════════════════════════
+<!--
      SECTION 1: HOW — One partner. One interface.
-══════════════════════════════════════════════════════════════ -->
+ -->
 <section class="nxr-section nxr-how" id="how-nexara-works">
   <div class="nxr-container">
     <div class="nxr-section-header">
@@ -71,9 +71,9 @@
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════════════════════
+<!--
      SECTION 2: WHAT — Energy solutions for all environments.
-══════════════════════════════════════════════════════════════ -->
+ -->
 <section class="nxr-section nxr-what" id="nexara-solutions">
   <div class="nxr-container">
     <div class="nxr-section-header">
@@ -173,9 +173,9 @@
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════════════════════
+<!--
      SECTION 3: APP — Tried and tested in the field and on site.
-══════════════════════════════════════════════════════════════ -->
+ -->
 <section class="nxr-section nxr-app" id="nexara-applications">
   <div class="nxr-container nxr-container--narrow">
     <div class="nxr-section-header nxr-section-header--center">
@@ -257,9 +257,9 @@
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════════════════════
+<!--
      SECTION 4: LIFECYCLE — Full life-cycle support.
-══════════════════════════════════════════════════════════════ -->
+ -->
 <section class="nxr-section nxr-lc" id="nexara-lifecycle">
   <div class="nxr-container">
     <div class="nxr-section-header">
@@ -315,9 +315,9 @@
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════════════════════
+<!--
      SECTION 5: VALUES — Our five pillars of value.
-══════════════════════════════════════════════════════════════ -->
+ -->
 <section class="nxr-section nxr-val" id="nexara-values">
   <div class="nxr-container">
     <div class="nxr-section-header nxr-section-header--center">
@@ -395,11 +395,11 @@
 </section>
 
 
-<!-- ══════════════════════════════════════════════════════════════
+<!--
      STYLES
-══════════════════════════════════════════════════════════════ -->
+ -->
 <style>
-/* ── Reset (scoped to nxr- elements) ────────────────────────── */
+/*  Reset (scoped to nxr- elements)  */
 .nxr-section *, .nxr-section *::before, .nxr-section *::after {
   box-sizing: border-box;
   margin: 0;
@@ -410,7 +410,7 @@
 .nxr-section a { text-decoration: none; }
 .nxr-section img { display: block; max-width: 100%; }
 
-/* ── Shared tokens ────────────────────────────────────────────── */
+/*  Shared tokens  */
 :root {
   --nxr-green:   #64B700;
   --nxr-blue:    #042648;
@@ -422,7 +422,7 @@
   --nxr-ff:      'DM Sans', system-ui, -apple-system, sans-serif;
 }
 
-/* ── Section base ─────────────────────────────────────────────── */
+/*  Section base  */
 /* Design rule: 100px horizontal padding, 50px vertical (reduced on smaller screens) */
 .nxr-section {
   background: var(--nxr-white);
@@ -440,7 +440,7 @@
   max-width: 1240px;
 }
 
-/* ── Section header ───────────────────────────────────────────── */
+/*  Section header  */
 .nxr-section-header {
   margin-bottom: 56px;
 }
@@ -470,7 +470,7 @@
   text-align: center;
 }
 
-/* ── Shared button ────────────────────────────────────────────── */
+/*  Shared button  */
 .nxr-btn {
   display: inline-flex;
   align-items: center;
@@ -492,7 +492,7 @@
 }
 .nxr-btn--outline:hover { background: var(--nxr-green); color: #fff; }
 
-/* ── Reveal animation ─────────────────────────────────────────── */
+/*  Reveal animation  */
 .nxr-reveal {
   opacity: 0;
   transform: translateY(24px);
@@ -504,9 +504,9 @@
 }
 
 
-/* ════════════════════════════════════════════════════════════════
+/*
    HOW SECTION
-════════════════════════════════════════════════════════════════ */
+ */
 .nxr-how__widget {
   display: flex;
   align-items: stretch;
@@ -658,9 +658,9 @@
 .nxr-how__fading { opacity: 0; }
 
 
-/* ════════════════════════════════════════════════════════════════
+/*
    WHAT SECTION
-════════════════════════════════════════════════════════════════ */
+ */
 .nxr-what { background: var(--nxr-white); }
 /* Horizontally scrollable, drag-only carousel (see shared .nxr-carousel rules) */
 .nxr-what__grid {
@@ -740,7 +740,7 @@
 .nxr-what__link svg { flex-shrink: 0; }
 .nxr-what__link svg path { stroke: var(--nxr-white); }
 
-/* ── Shared drag carousel (WHAT + VALUES) ─────────────────────── */
+/*  Shared drag carousel (WHAT + VALUES)  */
 .nxr-what__grid, .nxr-val__grid {
   scrollbar-width: none;            /* Firefox */
   -ms-overflow-style: none;         /* old Edge/IE */
@@ -755,9 +755,9 @@
 .nxr-what__card img, .nxr-val__card img { -webkit-user-drag: none; user-drag: none; }
 
 
-/* ════════════════════════════════════════════════════════════════
+/*
    APPLICATION SECTION
-════════════════════════════════════════════════════════════════ */
+ */
 .nxr-app { background: var(--nxr-white); }
 .nxr-app__scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
 .nxr-app__table {
@@ -803,9 +803,9 @@
 }
 
 
-/* ════════════════════════════════════════════════════════════════
+/*
    LIFECYCLE SECTION
-════════════════════════════════════════════════════════════════ */
+ */
 .nxr-lc { background: var(--nxr-white); }
 
 /* Timeline */
@@ -920,9 +920,9 @@
 .nxr-lc__copy-col, .nxr-lc__photo-col { transition: opacity 0.2s ease; }
 
 
-/* ════════════════════════════════════════════════════════════════
+/*
    VALUES SECTION
-════════════════════════════════════════════════════════════════ */
+ */
 .nxr-val { background: var(--nxr-white); }
 .nxr-val .nxr-subtitle { font-weight: 300; }
 /* Drag carousel (shares .nxr-carousel rules with WHAT) */
@@ -993,9 +993,9 @@
 }
 
 
-/* ════════════════════════════════════════════════════════════════
+/*
    RESPONSIVE — TABLET (≤1100px)
-════════════════════════════════════════════════════════════════ */
+ */
 @media (max-width: 1100px) {
   .nxr-section { padding-left: 48px; padding-right: 48px; }
 
@@ -1020,9 +1020,9 @@
   .nxr-lc__photo { height: 240px; }
 }
 
-/* ════════════════════════════════════════════════════════════════
+/*
    RESPONSIVE — MOBILE (≤599px)
-════════════════════════════════════════════════════════════════ */
+ */
 @media (max-width: 599px) {
   .nxr-section { padding: 40px 24px; }
   .nxr-subtitle { font-size: 18px; }
@@ -1044,7 +1044,7 @@
   .nxr-lc__track { top: 28px; left: 28px; right: 28px; }
 }
 
-/* ── Reduced motion ────────────────────────────────────────────── */
+/*  Reduced motion  */
 @media (prefers-reduced-motion: reduce) {
   .nxr-reveal,
   .nxr-lc__track-fill,
@@ -1057,20 +1057,20 @@
 </style>
 
 
-<!-- ══════════════════════════════════════════════════════════════
+<!--
      SCRIPT
-══════════════════════════════════════════════════════════════ -->
+ -->
 <script>
 (function () {
   'use strict';
 
-  /* ── CONFIGURE: Set your GitHub raw content base URL ─────────
+  /*  CONFIGURE: Set your GitHub raw content base URL
      Example:
      var NXR_BASE = 'https://raw.githubusercontent.com/nexara-energy/nexara-energy-website/main';
-  ──────────────────────────────────────────────────────────── */
+   */
   var NXR_BASE = 'https://raw.githubusercontent.com/andyluna999/nexara-energy-website/main';
 
-  /* ── Inject image sources ──────────────────────────────────── */
+  /*  Inject image sources  */
   function loadImages() {
     var imgs = document.querySelectorAll('.nxr-img[data-nxr]');
     for (var i = 0; i < imgs.length; i++) {
@@ -1078,7 +1078,7 @@
     }
   }
 
-  /* ── HOW section data ──────────────────────────────────────── */
+  /*  HOW section data  */
   var HOW_STEPS = [
     {
       title:    'Integrated power, done right.',
@@ -1110,7 +1110,7 @@
     }
   ];
 
-  /* ── Lifecycle section data ────────────────────────────────── */
+  /*  Lifecycle section data  */
   var LC_STEPS = [
     {
       title: 'Manufacturing & Integration',
@@ -1134,7 +1134,7 @@
     }
   ];
 
-  /* ── HOW section logic ─────────────────────────────────────── */
+  /*  HOW section logic  */
   function initHow() {
     var items    = document.querySelectorAll('.nxr-how__item');
     var bodyEl   = document.getElementById('nxrHowBody');
@@ -1179,7 +1179,7 @@
     setStep(0);
   }
 
-  /* ── Lifecycle section logic ───────────────────────────────── */
+  /*  Lifecycle section logic  */
   function initLifecycle() {
     var steps   = document.querySelectorAll('.nxr-lc__step');
     var track   = document.getElementById('nxrLcTrack');
@@ -1215,7 +1215,7 @@
     setLcStep(0);
   }
 
-  /* ── Scroll reveal ─────────────────────────────────────────── */
+  /*  Scroll reveal  */
   function initReveal() {
     if (!('IntersectionObserver' in window)) {
       var els = document.querySelectorAll('.nxr-reveal');
@@ -1234,7 +1234,7 @@
     for (var i = 0; i < els.length; i++) obs.observe(els[i]);
   }
 
-  /* ── Staggered reveal for card grids ───────────────────────── */
+  /*  Staggered reveal for card grids  */
   function initStagger() {
     var grids = document.querySelectorAll('.nxr-what__grid, .nxr-val__grid');
     grids.forEach(function (grid) {
@@ -1245,7 +1245,7 @@
     });
   }
 
-  /* ── Drag-to-scroll carousels (mouse); touch uses native scroll ─ */
+  /*  Drag-to-scroll carousels (mouse); touch uses native scroll  */
   function enableDragScroll(el) {
     if (!el) return;
     var down = false, startX = 0, startScroll = 0, moved = false;
@@ -1280,7 +1280,7 @@
     enableDragScroll(document.querySelector('.nxr-val__grid'));
   }
 
-  /* ── Bootstrap ─────────────────────────────────────────────── */
+  /*  Bootstrap  */
   function init() {
     loadImages();
     initHow();
