@@ -306,7 +306,7 @@
       <div class="nxr-lc__copy-col">
         <h3 id="nxrLcTitle" class="nxr-lc__step-title"></h3>
         <p id="nxrLcBody" class="nxr-lc__step-body"></p>
-        <a href="#contact" class="nxr-btn nxr-btn--outline">Power Your Project</a>
+        <a href="#contact" class="nxr-btn">Power Your Project</a>
       </div>
       <div class="nxr-lc__photo-col">
         <img id="nxrLcImg" class="nxr-lc__photo nxr-img" data-nxr="images/power-houses.jpg" alt="Nexara lifecycle support" loading="lazy">
@@ -663,12 +663,14 @@
  */
 .nxr-what { background: var(--nxr-white); padding-left: 24px; padding-right: 24px; }
 .nxr-what .nxr-container { max-width: 1180px; }
-/* Wrapping rows (3 cards per row at desktop) */
+/* 2x2 grid (max-width = exactly two 350px cards + 32px gap) */
 .nxr-what__grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 32px;
+  max-width: 732px;
+  margin: 0 auto;
 }
 .nxr-what__card {
   flex: 0 0 350px;
@@ -888,7 +890,7 @@
   font-size: 22px;
   font-weight: 600;
   line-height: 1.2;
-  margin-top: 4px;
+  margin-top: 30px;   /* 20px flex gap + 30px = 50px below the paragraph */
 }
 .nxr-lc__photo-col {
   flex: 0 0 520px;
