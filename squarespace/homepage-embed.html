@@ -662,13 +662,12 @@
    WHAT SECTION
 ════════════════════════════════════════════════════════════════ */
 .nxr-what { background: var(--nxr-white); }
-/* Horizontally scrollable carousel */
+/* Horizontally scrollable, drag-only carousel (see shared .nxr-carousel rules) */
 .nxr-what__grid {
   display: flex;
   flex-wrap: nowrap;
   gap: 32px;
   overflow-x: auto;
-  scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   padding-bottom: 14px;
 }
@@ -680,7 +679,6 @@
   display: flex;
   flex-direction: column;
   background: var(--nxr-blue);
-  scroll-snap-align: start;
 }
 .nxr-what__img-wrap {
   height: 200px;
@@ -726,9 +724,10 @@
   content: '';
   position: absolute;
   left: 0;
-  top: 13px;
+  top: 9px;
   width: 7px;
-  height: 1px;
+  height: 7px;
+  border-radius: 50%;
   background: var(--nxr-green);
 }
 /* Arrow-only CTA, locked bottom-right (body padding = 25px from edges) */
@@ -739,6 +738,21 @@
   color: var(--nxr-green);
 }
 .nxr-what__link svg { flex-shrink: 0; }
+.nxr-what__link svg path { stroke: var(--nxr-white); }
+
+/* ── Shared drag carousel (WHAT + VALUES) ─────────────────────── */
+.nxr-what__grid, .nxr-val__grid {
+  scrollbar-width: none;            /* Firefox */
+  -ms-overflow-style: none;         /* old Edge/IE */
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.nxr-what__grid::-webkit-scrollbar,
+.nxr-val__grid::-webkit-scrollbar { display: none; }   /* Chrome/Safari */
+.nxr-what__grid.nxr-dragging,
+.nxr-val__grid.nxr-dragging { cursor: grabbing; }
+.nxr-what__card img, .nxr-val__card img { -webkit-user-drag: none; user-drag: none; }
 
 
 /* ════════════════════════════════════════════════════════════════
@@ -810,7 +824,7 @@
 }
 .nxr-lc__track-fill {
   height: 100%;
-  background: var(--nxr-green);
+  background: var(--nxr-teal);
   width: 0%;
   transition: width 0.35s ease;
 }
@@ -832,23 +846,22 @@
   width: 75px;
   height: 75px;
   border-radius: 50%;
-  border: 2px solid #E0E0E0;
-  background: var(--nxr-white);
+  border: none;
+  background: #CCCCCC;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.2s, border-color 0.2s;
+  transition: background 0.2s;
 }
 .nxr-lc__ico {
   width: 36px;
   height: 36px;
   object-fit: contain;
-  filter: brightness(0) opacity(0.45);
+  filter: brightness(0) opacity(0.55);
   transition: filter 0.2s;
 }
 .nxr-lc__step.nxr-active .nxr-lc__circle {
-  background: var(--nxr-blue);
-  border-color: var(--nxr-blue);
+  background: var(--nxr-teal);
 }
 .nxr-lc__step.nxr-active .nxr-lc__ico {
   filter: brightness(0) invert(1);
@@ -879,6 +892,19 @@
   color: var(--nxr-text);
   max-width: 520px;
 }
+.nxr-lc__copy-col .nxr-btn {
+  height: 75px;
+  padding: 15px 25px;
+  width: fit-content;
+  max-width: 250px;
+  align-self: flex-start;
+  justify-content: center;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-top: 4px;
+}
 .nxr-lc__photo-col {
   flex: 0 0 520px;
   overflow: hidden;
@@ -897,18 +923,26 @@
 /* ════════════════════════════════════════════════════════════════
    VALUES SECTION
 ════════════════════════════════════════════════════════════════ */
-.nxr-val { background: #F2F2F2; }
+.nxr-val { background: var(--nxr-white); }
+.nxr-val .nxr-subtitle { font-weight: 300; }
+/* Drag carousel (shares .nxr-carousel rules with WHAT) */
 .nxr-val__grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  display: flex;
+  flex-wrap: nowrap;
   gap: 24px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 14px;
 }
 .nxr-val__card {
-  background: var(--nxr-white);
-  padding: 28px 24px 32px;
+  flex: 0 0 350px;
+  width: 350px;
+  height: 350px;
+  background: #F3F3F3;
+  padding: 28px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 18px;
 }
 .nxr-val__card-top {
   display: flex;
@@ -929,10 +963,10 @@
   font-weight: 400;
 }
 .nxr-val__title {
-  font-size: clamp(15px, 1.3vw, 18px);
-  font-weight: 500;
+  font-size: 26px;
+  font-weight: 300;
   color: var(--nxr-blue);
-  line-height: 1.3;
+  line-height: 34px;
 }
 .nxr-val__list {
   display: flex;
@@ -940,21 +974,22 @@
   gap: 10px;
 }
 .nxr-val__list li {
-  font-size: clamp(13px, 1.05vw, 15px);
+  font-size: 16px;
   font-weight: 400;
-  line-height: 1.55;
-  color: var(--nxr-text);
-  padding-left: 14px;
+  line-height: 1.5;
+  color: #343434;
+  padding-left: 16px;
   position: relative;
 }
 .nxr-val__list li::before {
   content: '';
   position: absolute;
   left: 0;
-  top: 0.7em;
-  width: 5px;
-  height: 1px;
-  background: var(--nxr-green);
+  top: 8px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #343434;
 }
 
 
@@ -1210,12 +1245,48 @@
     });
   }
 
+  /* ── Drag-to-scroll carousels (mouse); touch uses native scroll ─ */
+  function enableDragScroll(el) {
+    if (!el) return;
+    var down = false, startX = 0, startScroll = 0, moved = false;
+
+    el.addEventListener('pointerdown', function (e) {
+      if (e.pointerType !== 'mouse') return;  /* let touch scroll natively */
+      down = true; moved = false;
+      startX = e.clientX;
+      startScroll = el.scrollLeft;
+      el.classList.add('nxr-dragging');
+    });
+    el.addEventListener('pointermove', function (e) {
+      if (!down) return;
+      var dx = e.clientX - startX;
+      if (Math.abs(dx) > 4) moved = true;
+      el.scrollLeft = startScroll - dx;
+    });
+    function end() { down = false; el.classList.remove('nxr-dragging'); }
+    el.addEventListener('pointerup', end);
+    el.addEventListener('pointercancel', end);
+    el.addEventListener('pointerleave', end);
+    /* Swallow the click that follows a drag so links don't fire */
+    el.addEventListener('click', function (e) {
+      if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; }
+    }, true);
+    /* Stop native image ghost-drag */
+    el.addEventListener('dragstart', function (e) { e.preventDefault(); });
+  }
+
+  function initCarousels() {
+    enableDragScroll(document.querySelector('.nxr-what__grid'));
+    enableDragScroll(document.querySelector('.nxr-val__grid'));
+  }
+
   /* ── Bootstrap ─────────────────────────────────────────────── */
   function init() {
     loadImages();
     initHow();
     initLifecycle();
     initStagger();
+    initCarousels();
     initReveal();
   }
 
