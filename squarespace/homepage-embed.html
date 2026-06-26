@@ -661,15 +661,14 @@
 /*
    WHAT SECTION
  */
-.nxr-what { background: var(--nxr-white); }
-/* Horizontally scrollable, drag-only carousel (see shared .nxr-carousel rules) */
+.nxr-what { background: var(--nxr-white); padding-left: 24px; padding-right: 24px; }
+.nxr-what .nxr-container { max-width: 1180px; }
+/* Wrapping rows (3 cards per row at desktop) */
 .nxr-what__grid {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 32px;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  padding-bottom: 14px;
 }
 .nxr-what__card {
   flex: 0 0 350px;
@@ -739,20 +738,6 @@
 }
 .nxr-what__link svg { flex-shrink: 0; }
 .nxr-what__link svg path { stroke: var(--nxr-white); }
-
-/*  Shared drag carousel (WHAT + VALUES)  */
-.nxr-what__grid, .nxr-val__grid {
-  scrollbar-width: none;            /* Firefox */
-  -ms-overflow-style: none;         /* old Edge/IE */
-  cursor: grab;
-  user-select: none;
-  -webkit-user-select: none;
-}
-.nxr-what__grid::-webkit-scrollbar,
-.nxr-val__grid::-webkit-scrollbar { display: none; }   /* Chrome/Safari */
-.nxr-what__grid.nxr-dragging,
-.nxr-val__grid.nxr-dragging { cursor: grabbing; }
-.nxr-what__card img, .nxr-val__card img { -webkit-user-drag: none; user-drag: none; }
 
 
 /*
@@ -857,7 +842,7 @@
   width: 36px;
   height: 36px;
   object-fit: contain;
-  filter: brightness(0) opacity(0.55);
+  filter: brightness(0) invert(1);
   transition: filter 0.2s;
 }
 .nxr-lc__step.nxr-active .nxr-lc__circle {
@@ -871,7 +856,7 @@
 .nxr-lc__content {
   display: flex;
   gap: 56px;
-  align-items: center;
+  align-items: flex-start;
 }
 .nxr-lc__copy-col {
   flex: 1;
@@ -923,16 +908,15 @@
 /*
    VALUES SECTION
  */
-.nxr-val { background: var(--nxr-white); }
+.nxr-val { background: var(--nxr-white); padding-left: 24px; padding-right: 24px; }
+.nxr-val .nxr-container { max-width: 1180px; }
 .nxr-val .nxr-subtitle { font-weight: 300; }
-/* Drag carousel (shares .nxr-carousel rules with WHAT) */
+/* Wrapping rows (3 cards per row at desktop) */
 .nxr-val__grid {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 24px;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  padding-bottom: 14px;
 }
 .nxr-val__card {
   flex: 0 0 350px;
@@ -1011,9 +995,6 @@
   .nxr-how__photo { clip-path: none; }
   .nxr-how__copy-col { justify-content: flex-start; }
 
-  /* VAL */
-  .nxr-val__grid { grid-template-columns: repeat(3, 1fr); }
-
   /* LC */
   .nxr-lc__content { flex-direction: column; gap: 32px; }
   .nxr-lc__photo-col { flex: none; width: 100%; }
@@ -1033,10 +1014,8 @@
   .nxr-how__item-label { text-align: left; }
   .nxr-how__icon { flex: 1 1 33%; }
 
-  /* WHAT carousel keeps fixed cards (scrolls horizontally) */
-
-  /* VAL */
-  .nxr-val__grid { grid-template-columns: 1fr; }
+  /* WHAT + VAL cards go full-width on phones */
+  .nxr-what__card, .nxr-val__card { flex: 0 1 100%; width: 100%; max-width: 350px; height: auto; }
 
   /* LC */
   .nxr-lc__step .nxr-lc__circle { width: 56px; height: 56px; }
@@ -1245,39 +1224,22 @@
     });
   }
 
-  /*  Drag-to-scroll carousels (mouse); touch uses native scroll  */
-  function enableDragScroll(el) {
-    if (!el) return;
-    var down = false, startX = 0, startScroll = 0, moved = false;
-
-    el.addEventListener('pointerdown', function (e) {
-      if (e.pointerType !== 'mouse') return;  /* let touch scroll natively */
-      down = true; moved = false;
-      startX = e.clientX;
-      startScroll = el.scrollLeft;
-      el.classList.add('nxr-dragging');
-    });
-    el.addEventListener('pointermove', function (e) {
-      if (!down) return;
-      var dx = e.clientX - startX;
-      if (Math.abs(dx) > 4) moved = true;
-      el.scrollLeft = startScroll - dx;
-    });
-    function end() { down = false; el.classList.remove('nxr-dragging'); }
-    el.addEventListener('pointerup', end);
-    el.addEventListener('pointercancel', end);
-    el.addEventListener('pointerleave', end);
-    /* Swallow the click that follows a drag so links don't fire */
-    el.addEventListener('click', function (e) {
-      if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; }
-    }, true);
-    /* Stop native image ghost-drag */
-    el.addEventListener('dragstart', function (e) { e.preventDefault(); });
-  }
-
-  function initCarousels() {
-    enableDragScroll(document.querySelector('.nxr-what__grid'));
-    enableDragScroll(document.querySelector('.nxr-val__grid'));
+  /*  Lock the HOW image to the tallest step's height so it never resizes
+     when switching steps (desktop / side-by-side layout only).  */
+  function lockHowImage() {
+    var copyCol  = document.querySelector('.nxr-how__copy-col');
+    var photoCol = document.querySelector('.nxr-how__photo-col');
+    var bodyEl   = document.getElementById('nxrHowBody');
+    if (!copyCol || !photoCol || !bodyEl) return;
+    photoCol.style.height = '';              /* reset before measuring */
+    if (window.innerWidth <= 1100) return;   /* stacked layout: leave natural */
+    var saved = bodyEl.textContent, max = 0;
+    for (var i = 0; i < HOW_STEPS.length; i++) {
+      bodyEl.textContent = HOW_STEPS[i].body;
+      if (copyCol.scrollHeight > max) max = copyCol.scrollHeight;
+    }
+    bodyEl.textContent = saved;
+    photoCol.style.height = max + 'px';
   }
 
   /*  Bootstrap  */
@@ -1286,8 +1248,13 @@
     initHow();
     initLifecycle();
     initStagger();
-    initCarousels();
+    lockHowImage();
     initReveal();
+    var rt;
+    window.addEventListener('resize', function () {
+      clearTimeout(rt);
+      rt = setTimeout(lockHowImage, 150);
+    });
   }
 
   if (document.readyState === 'loading') {
