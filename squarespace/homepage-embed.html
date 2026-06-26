@@ -17,10 +17,10 @@
     5. VAL   — Our five pillars of value.            (value cards)
 -->
 
-<!-- Inter font — browser deduplicates if Squarespace already loaded it -->
+<!-- DM Sans — browser deduplicates if Squarespace already loaded it -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 
 <!-- ══════════════════════════════════════════════════════════════
      SECTION 1: HOW — One partner. One interface.
@@ -62,7 +62,6 @@
           <img class="nxr-how__photo nxr-img" data-nxr="images/on-site-power-generators.jpg" alt="Nexara power generation in the field" loading="lazy">
         </div>
         <div class="nxr-how__copy-col">
-          <h3 id="nxrHowTitle" class="nxr-how__step-title"></h3>
           <p id="nxrHowBody" class="nxr-how__step-body"></p>
           <div id="nxrHowIcons" class="nxr-how__icon-row"></div>
           <a id="nxrHowBtn" href="#contact" class="nxr-btn"></a>
@@ -181,7 +180,7 @@
   <div class="nxr-container nxr-container--narrow">
     <div class="nxr-section-header nxr-section-header--center">
       <h2 class="nxr-h2"><span class="nxr-accent">Tried and tested</span> in the field and on site.</h2>
-      <p class="nxr-subtitle">See the table below to perform a quick operational needs analysis:</p>
+      <p class="nxr-subtitle nxr-subtitle--center">See the table below to perform a quick operational needs analysis:</p>
     </div>
 
     <div class="nxr-app__scroll">
@@ -415,17 +414,19 @@
 :root {
   --nxr-green:   #64B700;
   --nxr-blue:    #042648;
+  --nxr-teal:    #009EBA;
   --nxr-white:   #FCFCFC;
   --nxr-text:    #5C5C5C;
   --nxr-gray:    #9E9E9E;
   --nxr-lt:      #F5F5F5;
-  --nxr-ff:      'Inter', system-ui, -apple-system, sans-serif;
+  --nxr-ff:      'DM Sans', system-ui, -apple-system, sans-serif;
 }
 
 /* ── Section base ─────────────────────────────────────────────── */
+/* Design rule: 100px horizontal padding, 50px vertical (reduced on smaller screens) */
 .nxr-section {
   background: var(--nxr-white);
-  padding: 96px max(24px, 5vw);
+  padding: 50px 100px;
   font-family: var(--nxr-ff);
   -webkit-font-smoothing: antialiased;
   color: var(--nxr-text);
@@ -458,11 +459,11 @@
 .nxr-accent { color: var(--nxr-green); }
 
 .nxr-subtitle {
-  font-size: clamp(16px, 1.7vw, 22px);
+  font-size: clamp(18px, 1.9vw, 26px);
   font-weight: 400;
-  line-height: 1.65;
+  line-height: 1.5;
   color: var(--nxr-text);
-  max-width: 720px;
+  max-width: 760px;
 }
 .nxr-subtitle--center {
   margin: 0 auto;
@@ -510,13 +511,12 @@
   display: flex;
   align-items: stretch;
   gap: 0;
-  min-height: 455px;
 }
 
 /* Left menu */
 .nxr-how__left {
-  flex: 0 0 auto;
-  width: 400px;
+  flex: 0 0 360px;
+  width: 360px;
   display: flex;
   position: relative;
 }
@@ -545,46 +545,44 @@
   transition: color 0.2s;
 }
 .nxr-how__circle {
-  flex: 0 0 50px;
-  width: 50px;
-  height: 50px;
+  flex: 0 0 48px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
-  border: 2px solid var(--nxr-gray);
+  background: #CCCCCC;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 18px;
-  font-weight: 400;
-  color: var(--nxr-gray);
-  transition: background 0.2s, border-color 0.2s, color 0.2s;
+  font-size: 20px;
+  font-weight: 500;
+  color: #fff;
+  transition: background 0.2s;
 }
 .nxr-how__item.nxr-active .nxr-how__circle {
-  background: var(--nxr-blue);
-  border-color: var(--nxr-blue);
-  color: #fff;
+  background: var(--nxr-teal);
 }
 .nxr-how__item-label {
-  font-size: clamp(15px, 1.4vw, 18px);
-  font-weight: 400;
-  line-height: 1.4;
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 26px;
   color: var(--nxr-gray);
   transition: color 0.2s;
 }
 .nxr-how__item.nxr-active .nxr-how__item-label {
-  color: var(--nxr-blue);
-  font-weight: 500;
+  color: var(--nxr-teal);
 }
 
 /* Right content panel */
 .nxr-how__right {
-  flex: 1;
+  flex: 1 1 auto;
+  min-width: 0;
   display: flex;
-  gap: 40px;
-  padding-left: 48px;
+  gap: 32px;
+  padding-left: 40px;
   align-items: stretch;
 }
 .nxr-how__photo-col {
-  flex: 0 0 395px;
+  flex: 0 0 320px;
   overflow: hidden;
 }
 .nxr-how__photo {
@@ -593,36 +591,34 @@
   object-fit: cover;
   clip-path: polygon(0 0, calc(100% - 24px) 0, 100% 100%, 0 100%);
 }
+/* Copy + icons + CTA — one left-aligned frame */
 .nxr-how__copy-col {
-  flex: 1;
+  flex: 1 1 auto;
+  min-width: 0;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  padding-top: 24px;
-  gap: 20px;
-}
-.nxr-how__step-title {
-  font-size: clamp(18px, 1.8vw, 24px);
-  font-weight: 300;
-  line-height: 1.35;
-  color: var(--nxr-blue);
+  align-items: flex-start;
+  justify-content: center;
+  gap: 24px;
 }
 .nxr-how__step-body {
-  font-size: clamp(15px, 1.3vw, 18px);
-  font-weight: 400;
-  line-height: 1.7;
+  font-size: 22px;
+  font-weight: 300;
+  line-height: 32px;
   color: var(--nxr-text);
 }
 .nxr-how__icon-row {
   display: flex;
-  gap: 24px;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 .nxr-how__icon {
+  flex: 1 1 0;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
-  width: 115px;
+  gap: 12px;
   text-align: center;
 }
 .nxr-how__icon img {
@@ -632,10 +628,17 @@
   filter: brightness(0) opacity(0.62);
 }
 .nxr-how__icon-cap {
-  font-size: 13px;
+  font-size: 18px;
   font-weight: 400;
-  line-height: 1.4;
-  color: var(--nxr-text);
+  line-height: 1.3;
+  color: var(--nxr-gray);
+}
+.nxr-how__copy-col .nxr-btn {
+  max-width: 250px;
+  width: 100%;
+  align-self: flex-start;
+  justify-content: center;
+  margin-top: 4px;
 }
 
 /* HOW section content fade transition */
@@ -648,18 +651,25 @@
    WHAT SECTION
 ════════════════════════════════════════════════════════════════ */
 .nxr-what { background: var(--nxr-white); }
+.nxr-what .nxr-container { max-width: 1496px; }
 .nxr-what__grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 32px;
 }
 .nxr-what__card {
+  flex: 0 1 350px;
+  width: 100%;
+  max-width: 350px;
+  height: 480px;
   display: flex;
   flex-direction: column;
-  border: 1px solid #E8E8E8;
+  background: var(--nxr-blue);
 }
 .nxr-what__img-wrap {
   height: 200px;
+  flex-shrink: 0;
   overflow: hidden;
 }
 .nxr-what__img {
@@ -675,23 +685,23 @@
   padding: 24px;
 }
 .nxr-what__title {
-  font-size: clamp(16px, 1.4vw, 20px);
+  font-size: 20px;
   font-weight: 500;
-  color: var(--nxr-blue);
+  color: var(--nxr-white);
   margin-bottom: 16px;
 }
 .nxr-what__list {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  margin-bottom: 24px;
+  gap: 7px;
+  margin-bottom: 16px;
 }
 .nxr-what__list li {
-  font-size: clamp(13px, 1.1vw, 15px);
-  font-weight: 400;
-  line-height: 1.55;
-  color: var(--nxr-text);
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.45;
+  color: #C7D0DA;
   padding-left: 14px;
   position: relative;
 }
@@ -704,7 +714,7 @@
   height: 1px;
   background: var(--nxr-green);
 }
-.nxr-what__cta { margin-top: auto; }
+.nxr-what__cta { margin-top: auto; text-align: right; }
 .nxr-what__link {
   display: inline-flex;
   align-items: center;
@@ -937,20 +947,19 @@
    RESPONSIVE — TABLET (≤1100px)
 ════════════════════════════════════════════════════════════════ */
 @media (max-width: 1100px) {
-  /* HOW */
-  .nxr-how__widget { flex-direction: column; min-height: auto; }
-  .nxr-how__left { width: 100%; }
-  .nxr-how__menu { flex-direction: row; flex-wrap: wrap; gap: 8px; padding-bottom: 24px; }
-  .nxr-how__item { width: auto; flex: 1; min-width: 140px; flex-direction: column; align-items: center; gap: 8px; padding: 12px; }
-  .nxr-how__item-label { font-size: 13px; text-align: center; }
+  .nxr-section { padding-left: 48px; padding-right: 48px; }
+
+  /* HOW — stack menu above content */
+  .nxr-how__widget { flex-direction: column; }
+  .nxr-how__left { flex: none; width: 100%; }
+  .nxr-how__menu { flex-direction: row; flex-wrap: wrap; gap: 8px; padding-bottom: 24px; justify-content: space-between; }
+  .nxr-how__item { width: auto; flex: 1 1 160px; min-width: 160px; flex-direction: column; align-items: center; gap: 10px; padding: 12px; text-align: center; }
+  .nxr-how__item-label { font-size: 16px; line-height: 22px; text-align: center; }
   .nxr-how__divider { display: none; }
   .nxr-how__right { flex-direction: column; padding-left: 0; gap: 24px; }
-  .nxr-how__photo-col { flex: none; height: 260px; }
+  .nxr-how__photo-col { flex: none; height: 280px; }
   .nxr-how__photo { clip-path: none; }
-  .nxr-how__copy-col { padding-top: 0; }
-
-  /* WHAT */
-  .nxr-what__grid { grid-template-columns: repeat(2, 1fr); }
+  .nxr-how__copy-col { justify-content: flex-start; }
 
   /* VAL */
   .nxr-val__grid { grid-template-columns: repeat(3, 1fr); }
@@ -965,16 +974,16 @@
    RESPONSIVE — MOBILE (≤599px)
 ════════════════════════════════════════════════════════════════ */
 @media (max-width: 599px) {
-  .nxr-section { padding-top: 64px; padding-bottom: 64px; }
+  .nxr-section { padding: 40px 24px; }
 
   /* HOW — accordion-style vertical stack */
   .nxr-how__menu { flex-direction: column; gap: 0; }
-  .nxr-how__item { flex-direction: row; width: 100%; border-bottom: 1px solid #EBEBEB; padding: 16px 0; }
+  .nxr-how__item { flex-direction: row; width: 100%; align-items: center; border-bottom: 1px solid #EBEBEB; padding: 16px 0; }
   .nxr-how__item-label { text-align: left; }
-  .nxr-how__icon-row { flex-wrap: wrap; }
+  .nxr-how__icon { flex: 1 1 33%; }
 
   /* WHAT */
-  .nxr-what__grid { grid-template-columns: 1fr; }
+  .nxr-what__card { height: auto; }
 
   /* VAL */
   .nxr-val__grid { grid-template-columns: 1fr; }
@@ -1024,8 +1033,8 @@
     {
       title:    'Integrated power, done right.',
       body:     'Nexara takes care of the generation, infrastructure, microgrids & electrical systems and any specialized engineering to fill the gaps.',
-      icons:    ['plug-icon', 'puzzle-piece-icon', 'tool-icon'],
-      captions: ['Reliable Power', 'System Integration', 'Engineering Support'],
+      icons:    ['plug-icon', 'folder-icon', 'puzzle-piece-icon'],
+      captions: ['Maximize Uptime', 'Fewer Handoffs', 'Right-fit System'],
       btn:      'Integrate Power'
     },
     {
@@ -1078,21 +1087,18 @@
   /* ── HOW section logic ─────────────────────────────────────── */
   function initHow() {
     var items    = document.querySelectorAll('.nxr-how__item');
-    var titleEl  = document.getElementById('nxrHowTitle');
     var bodyEl   = document.getElementById('nxrHowBody');
     var iconRow  = document.getElementById('nxrHowIcons');
     var btnEl    = document.getElementById('nxrHowBtn');
     var copyCol  = document.querySelector('.nxr-how__copy-col');
-    var photoCol = document.querySelector('.nxr-how__photo-col');
 
-    if (!titleEl) return;
+    if (!bodyEl) return;
 
     function setStep(idx) {
       var s = HOW_STEPS[idx];
       /* Fade out */
       copyCol.classList.add('nxr-how__fading');
       setTimeout(function () {
-        titleEl.textContent = s.title;
         bodyEl.textContent  = s.body;
         btnEl.textContent   = s.btn;
         /* Build icon row */
