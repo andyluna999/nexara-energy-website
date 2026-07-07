@@ -1411,6 +1411,14 @@
       clearTimeout(rt);
       rt = setTimeout(lockHowImage, 150);
     });
+    /* Weglot: code block renders after Weglot's initial page scan,
+       so static content (WHAT cards, VALUES, section headers) would
+       be missed. One deferred refresh covers everything in the embed. */
+    setTimeout(function () {
+      if (window.Weglot && typeof window.Weglot.refresh === 'function') {
+        window.Weglot.refresh();
+      }
+    }, 800);
   }
 
   if (document.readyState === 'loading') {
