@@ -61,7 +61,8 @@
         <div class="nxr-how__photo-col">
           <img class="nxr-how__photo nxr-img" data-nxr="images/integrated-power-done-right.jpg" alt="Nexara power generation in the field" loading="lazy">
         </div>
-        <div class="nxr-how__copy-col">
+        <!-- Weglot dynamic content target: add .nxr-weglot-dynamic in Weglot Dashboard > Dynamic Elements -->
+        <div class="nxr-how__copy-col nxr-weglot-dynamic">
           <h3 id="nxrHowTitle" class="nxr-how__step-title"></h3>
           <p id="nxrHowBody" class="nxr-how__step-body"></p>
           <div id="nxrHowIcons" class="nxr-how__icon-row"></div>
@@ -314,7 +315,8 @@
 
     <!-- Content panel -->
     <div class="nxr-lc__content">
-      <div class="nxr-lc__copy-col">
+      <!-- Weglot dynamic content target: add .nxr-weglot-dynamic in Weglot Dashboard > Dynamic Elements -->
+      <div class="nxr-lc__copy-col nxr-weglot-dynamic">
         <h3 id="nxrLcTitle" class="nxr-lc__step-title"></h3>
         <p id="nxrLcBody" class="nxr-lc__step-body"></p>
         <a href="https://www.nexaraenergy.net/#contact" class="nxr-btn">Power Your Project</a>
@@ -1261,6 +1263,9 @@
         items[i].classList.toggle('nxr-active', i === idx);
         items[i].setAttribute('aria-pressed', i === idx ? 'true' : 'false');
       }
+      if (window.Weglot && typeof window.Weglot.refresh === 'function') {
+        window.Weglot.refresh();
+      }
     }
 
     function setStep(idx) {
@@ -1309,6 +1314,9 @@
           steps[i].setAttribute('aria-pressed', i === idx ? 'true' : 'false');
         }
         copyCol.classList.remove('nxr-lc__fading');
+        if (window.Weglot && typeof window.Weglot.refresh === 'function') {
+          window.Weglot.refresh();
+        }
       }, 150);
     }
 
