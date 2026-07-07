@@ -1411,14 +1411,26 @@
       clearTimeout(rt);
       rt = setTimeout(lockHowImage, 150);
     });
-    /* Weglot: code block renders after Weglot's initial page scan,
-       so static content (WHAT cards, VALUES, section headers) would
-       be missed. One deferred refresh covers everything in the embed. */
-    setTimeout(function () {
+    /* Weglot: the code block renders after Weglot's initial page scan,
+       so static content (WHAT titles, bullets, VALUES, headings) is
+       never submitted for translation. Strategy: try immediately, listen
+       for the Weglot init event, and poll every 400ms as a fallback —
+       stop as soon as refresh() fires successfully. */
+    var _nxrWgDone = false;
+    function _nxrWgRefresh() {
+      if (_nxrWgDone) return;
       if (window.Weglot && typeof window.Weglot.refresh === 'function') {
         window.Weglot.refresh();
+        _nxrWgDone = true;
       }
-    }, 800);
+    }
+    _nxrWgRefresh();                                        /* try immediately */
+    document.addEventListener('weglot:initialized', _nxrWgRefresh);  /* event */
+    var _nxrWgPoll = setInterval(function () {              /* poll fallback  */
+      _nxrWgRefresh();
+      if (_nxrWgDone) clearInterval(_nxrWgPoll);
+    }, 400);
+    setTimeout(function () { clearInterval(_nxrWgPoll); }, 8000);   /* cap 8s */
   }
 
   if (document.readyState === 'loading') {
