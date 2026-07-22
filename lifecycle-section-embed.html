@@ -1,0 +1,370 @@
+<!--
+  NEXARA — FULL LIFE-CYCLE SUPPORT — Squarespace Code Block Embed
+  ─────────────────────────────────────────────────────────────────
+  Paste into a Squarespace code block (Edit → Add Block → Code).
+  Self-contained: no framework, no build step.
+
+  5 steps auto-cycle at 4s intervals after load.
+  Hover pauses cycling; clicking a step jumps to it.
+  Respects prefers-reduced-motion.
+  Content visible if JS fails.
+
+  Update the /contact href below to match your Squarespace
+  contact page URL before going live.
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<section class="nxr-lc" id="nexara-lifecycle">
+  <div class="nxr-lc__container">
+
+    <header class="nxr-lc__header">
+      <h2 class="nxr-lc__title">Full Life-Cycle Support.</h2>
+      <p class="nxr-lc__subtitle">End-to-end coordination from equipment manufacturing to field support and lifecycle services.</p>
+    </header>
+
+    <!-- Step navigation tabs -->
+    <div class="nxr-lc__steps" id="nxrLcSteps" role="tablist">
+
+      <button class="nxr-lc__step nxr-lc__step--active" role="tab" data-i="0" aria-selected="true" aria-controls="nxr-lc-panel-0">
+        <div class="nxr-lc__step-bar"></div>
+        <span class="nxr-lc__step-num">01</span>
+        <span class="nxr-lc__step-label">Manufacturing<br>&amp; Integration</span>
+      </button>
+
+      <button class="nxr-lc__step" role="tab" data-i="1" aria-selected="false" aria-controls="nxr-lc-panel-1">
+        <div class="nxr-lc__step-bar"></div>
+        <span class="nxr-lc__step-num">02</span>
+        <span class="nxr-lc__step-label">Transportation<br>&amp; Logistics</span>
+      </button>
+
+      <button class="nxr-lc__step" role="tab" data-i="2" aria-selected="false" aria-controls="nxr-lc-panel-2">
+        <div class="nxr-lc__step-bar"></div>
+        <span class="nxr-lc__step-num">03</span>
+        <span class="nxr-lc__step-label">Installation<br>&amp; Mobilization</span>
+      </button>
+
+      <button class="nxr-lc__step" role="tab" data-i="3" aria-selected="false" aria-controls="nxr-lc-panel-3">
+        <div class="nxr-lc__step-bar"></div>
+        <span class="nxr-lc__step-num">04</span>
+        <span class="nxr-lc__step-label">Commissioning<br>&amp; Startup</span>
+      </button>
+
+      <button class="nxr-lc__step" role="tab" data-i="4" aria-selected="false" aria-controls="nxr-lc-panel-4">
+        <div class="nxr-lc__step-bar"></div>
+        <span class="nxr-lc__step-num">05</span>
+        <span class="nxr-lc__step-label">Operations<br>&amp; Support</span>
+      </button>
+
+    </div><!-- /.nxr-lc__steps -->
+
+    <!-- Content panels (all in DOM for progressive enhancement) -->
+    <div class="nxr-lc__panels">
+
+      <div class="nxr-lc__panel nxr-lc__panel--active" id="nxr-lc-panel-0" role="tabpanel">
+        <h3 class="nxr-lc__panel-heading">Manufacturing &amp; Integration</h3>
+        <p class="nxr-lc__panel-body">Our team ensures the correct equipment gets manufactured, tested, integrated and passes all necessary quality checks — before it ever reaches the field.</p>
+        <a class="nxr-lc__cta" href="/contact">Power Your Project</a>
+      </div>
+
+      <div class="nxr-lc__panel" id="nxr-lc-panel-1" role="tabpanel">
+        <h3 class="nxr-lc__panel-heading">Transportation &amp; Logistics</h3>
+        <p class="nxr-lc__panel-body">We coordinate the full logistics chain from origin to site — freight, customs, trade compliance, and last-mile delivery to remote or difficult-access locations, on schedule.</p>
+        <a class="nxr-lc__cta" href="/contact">Power Your Project</a>
+      </div>
+
+      <div class="nxr-lc__panel" id="nxr-lc-panel-2" role="tabpanel">
+        <h3 class="nxr-lc__panel-heading">Installation &amp; Mobilization</h3>
+        <p class="nxr-lc__panel-body">On-site installation coordinated to your schedule. Equipment placement, electrical connections, and system integration with your existing infrastructure — without operational disruption.</p>
+        <a class="nxr-lc__cta" href="/contact">Power Your Project</a>
+      </div>
+
+      <div class="nxr-lc__panel" id="nxr-lc-panel-3" role="tabpanel">
+        <h3 class="nxr-lc__panel-heading">Commissioning &amp; Startup</h3>
+        <p class="nxr-lc__panel-body">Every system commissioned to specification — load testing, protection settings, synchronization, and operator familiarization before handoff. Your team is ready from day one.</p>
+        <a class="nxr-lc__cta" href="/contact">Power Your Project</a>
+      </div>
+
+      <div class="nxr-lc__panel" id="nxr-lc-panel-4" role="tabpanel">
+        <h3 class="nxr-lc__panel-heading">Operations &amp; Support</h3>
+        <p class="nxr-lc__panel-body">Ongoing field coordination, maintenance scheduling, parts logistics, and performance monitoring throughout the equipment's operational life — one point of contact, continuous coverage.</p>
+        <a class="nxr-lc__cta" href="/contact">Power Your Project</a>
+      </div>
+
+    </div><!-- /.nxr-lc__panels -->
+
+  </div><!-- /.nxr-lc__container -->
+</section>
+
+<style>
+  /* ── Scoped reset ─────────────────────────────────── */
+  .nxr-lc *, .nxr-lc *::before, .nxr-lc *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* ── Section ─────────────────────────────────────── */
+  .nxr-lc {
+    background: #FCFCFC;
+    padding: 100px max(24px, 5vw) 120px;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .nxr-lc__container {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  /* ── Header ──────────────────────────────────────── */
+  .nxr-lc__header {
+    margin-bottom: 64px;
+  }
+
+  .nxr-lc__title {
+    font-size: clamp(36px, 5vw, 60px);
+    font-weight: 300;
+    line-height: 1.25;
+    color: #042648;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+    text-wrap: balance;
+  }
+
+  .nxr-lc__subtitle {
+    font-size: clamp(16px, 1.8vw, 22px);
+    font-weight: 400;
+    line-height: 1.65;
+    color: #5C5C5C;
+    max-width: 680px;
+  }
+
+  /* ── Step navigation tabs ────────────────────────── */
+  .nxr-lc__steps {
+    display: flex;
+    align-items: stretch;
+  }
+
+  .nxr-lc__step {
+    flex: 1;
+    background: #042648;
+    border: none;
+    padding: 24px 24px 28px;
+    text-align: left;
+    cursor: pointer;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* Green accent bar */
+  .nxr-lc__step-bar {
+    width: 100%;
+    height: 3px;
+    background: #64B700;
+    margin-bottom: 20px;
+    transition: height 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+  }
+
+  /* Step number */
+  .nxr-lc__step-num {
+    display: block;
+    font-size: 11px;
+    font-weight: 500;
+    color: #64B700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  /* Step label */
+  .nxr-lc__step-label {
+    font-size: clamp(12px, 1.1vw, 14px);
+    font-weight: 400;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.48);
+    transition: color 0.4s ease;
+  }
+
+  /* Active state */
+  .nxr-lc__step--active .nxr-lc__step-bar {
+    height: 8px;
+  }
+
+  .nxr-lc__step--active .nxr-lc__step-label {
+    color: rgba(255, 255, 255, 0.92);
+  }
+
+  /* Hover on inactive */
+  .nxr-lc__step:not(.nxr-lc__step--active):hover .nxr-lc__step-label {
+    color: rgba(255, 255, 255, 0.68);
+  }
+
+  /* ── Content panels ──────────────────────────────── */
+  .nxr-lc__panels {
+    display: grid;
+    background: #042648;
+    padding: 56px max(24px, 4vw) 64px;
+  }
+
+  /* All panels occupy the same grid cell — cross-fade between them */
+  .nxr-lc__panel {
+    grid-row: 1;
+    grid-column: 1;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.35s ease, visibility 0s 0.35s;
+  }
+
+  .nxr-lc__panel--active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition: opacity 0.35s ease, visibility 0s 0s;
+  }
+
+  .nxr-lc__panel-heading {
+    font-size: clamp(26px, 3vw, 40px);
+    font-weight: 300;
+    line-height: 1.25;
+    color: #ffffff;
+    letter-spacing: -0.01em;
+    margin-bottom: 20px;
+    max-width: 760px;
+  }
+
+  .nxr-lc__panel-body {
+    font-size: clamp(16px, 1.6vw, 20px);
+    font-weight: 400;
+    line-height: 1.7;
+    color: rgba(252, 252, 252, 0.65);
+    max-width: 640px;
+    margin-bottom: 44px;
+  }
+
+  /* CTA button */
+  .nxr-lc__cta {
+    display: inline-block;
+    background: #64B700;
+    color: #ffffff;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 16px 36px;
+  }
+
+  .nxr-lc__cta:hover {
+    background: #57a000;
+    color: #ffffff;
+  }
+
+  /* ── Tablet: 2-col grid, step 5 spans full width ─── */
+  @media (max-width: 1023px) {
+    .nxr-lc__header {
+      margin-bottom: 40px;
+    }
+
+    .nxr-lc__steps {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+    }
+
+    .nxr-lc__step:last-child {
+      grid-column: 1 / -1;
+    }
+  }
+
+  /* ── Mobile ──────────────────────────────────────── */
+  @media (max-width: 599px) {
+    .nxr-lc {
+      padding-top: 72px;
+      padding-bottom: 80px;
+    }
+
+    .nxr-lc__header {
+      margin-bottom: 32px;
+    }
+
+    .nxr-lc__step {
+      padding: 20px 16px 24px;
+    }
+
+    .nxr-lc__panels {
+      padding: 40px 24px 48px;
+    }
+  }
+
+  /* ── Reduced motion ──────────────────────────────── */
+  @media (prefers-reduced-motion: reduce) {
+    .nxr-lc__step-bar,
+    .nxr-lc__step-label,
+    .nxr-lc__panel {
+      transition: none !important;
+    }
+  }
+</style>
+
+<script>
+(function () {
+  'use strict';
+
+  var stepsEl = document.getElementById('nxrLcSteps');
+  if (!stepsEl) return;
+
+  var steps  = Array.from(stepsEl.querySelectorAll('.nxr-lc__step'));
+  var panels = Array.from(document.querySelectorAll('.nxr-lc__panel'));
+
+  var activeIdx   = 0;
+  var cyclePaused = false;
+  var cycleTimer  = null;
+  var CYCLE_MS    = 4000;
+
+  function setActive(idx) {
+    activeIdx = idx;
+    steps.forEach(function (s, i) {
+      var on = i === idx;
+      s.classList.toggle('nxr-lc__step--active', on);
+      s.setAttribute('aria-selected', on ? 'true' : 'false');
+    });
+    panels.forEach(function (p, i) {
+      p.classList.toggle('nxr-lc__panel--active', i === idx);
+    });
+  }
+
+  function resetTimer() {
+    clearInterval(cycleTimer);
+    cycleTimer = setInterval(function () {
+      if (!cyclePaused) setActive((activeIdx + 1) % steps.length);
+    }, CYCLE_MS);
+  }
+
+  /* Click step → jump and reset timer */
+  steps.forEach(function (s) {
+    s.addEventListener('click', function () {
+      var t = parseInt(s.getAttribute('data-i'), 10);
+      if (!isNaN(t)) { setActive(t); resetTimer(); }
+    });
+  });
+
+  /* Pause cycling on hover */
+  stepsEl.addEventListener('mouseenter', function () { cyclePaused = true; });
+  stepsEl.addEventListener('mouseleave', function () { cyclePaused = false; });
+
+  /* Initialise and start cycling */
+  setActive(0);
+  cycleTimer = setInterval(function () {
+    if (!cyclePaused) setActive((activeIdx + 1) % steps.length);
+  }, CYCLE_MS);
+
+}());
+</script>

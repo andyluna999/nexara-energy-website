@@ -10,6 +10,8 @@
 
   Animation: IntersectionObserver-triggered, fully respects
   prefers-reduced-motion. Content visible if JS fails.
+  Auto-cycling: pillars cycle at 4s intervals after entry.
+  Hover pauses cycling; dot clicks jump to a pillar.
 -->
 
 <!-- Inter font -->
@@ -85,6 +87,15 @@
       </div>
 
     </div><!-- /.nxr-how__rail -->
+
+    <!-- Cycle indicator dots (revealed by JS when cycling starts) -->
+    <div class="nxr-how__dots" id="nxrHowDots" aria-hidden="true">
+      <button class="nxr-how__dot nxr-how__dot--active" data-target="0"></button>
+      <button class="nxr-how__dot" data-target="1"></button>
+      <button class="nxr-how__dot" data-target="2"></button>
+      <button class="nxr-how__dot" data-target="3"></button>
+    </div>
+
   </div><!-- /.nxr-how__container -->
 </section>
 
@@ -154,6 +165,7 @@
     height: 3px;
     background: #64B700;
     margin-bottom: 28px;
+    transition: height 0.4s cubic-bezier(0.77, 0, 0.175, 1);
   }
 
   /* Step number */
@@ -175,6 +187,7 @@
     color: #ffffff;
     margin-bottom: 24px;
     word-break: break-word;
+    transition: color 0.4s ease;
   }
 
   /* Bullet list */
@@ -192,6 +205,7 @@
     color: rgba(252, 252, 252, 0.58);
     padding-left: 14px;
     position: relative;
+    transition: color 0.4s ease;
   }
 
   /* Green dash bullet */
@@ -203,6 +217,60 @@
     width: 5px;
     height: 1px;
     background: #64B700;
+  }
+
+  /* ── Active pillar state (cycling) ───────────────── */
+  .nxr-how__pillar--active .nxr-how__bar {
+    height: 8px;
+  }
+
+  .nxr-how__pillar--active .nxr-how__list li {
+    color: rgba(252, 252, 252, 0.85);
+  }
+
+  /* Dim inactive pillars once cycling begins */
+  .nxr-how__rail--cycling .nxr-how__pillar:not(.nxr-how__pillar--active) .nxr-how__heading {
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .nxr-how__rail--cycling .nxr-how__pillar:not(.nxr-how__pillar--active) .nxr-how__list li {
+    color: rgba(252, 252, 252, 0.32);
+  }
+
+  /* ── Dot indicators ──────────────────────────────── */
+  .nxr-how__dots {
+    display: flex;
+    gap: 6px;
+    margin-top: 18px;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+
+  .nxr-how__dots--visible {
+    opacity: 1;
+  }
+
+  .nxr-how__dot {
+    position: relative;
+    width: 28px;
+    height: 2px;
+    background: rgba(4, 38, 72, 0.18);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease, width 0.3s ease;
+  }
+
+  /* Expand vertical hit area without changing visual */
+  .nxr-how__dot::before {
+    content: '';
+    position: absolute;
+    inset: -8px 0;
+  }
+
+  .nxr-how__dot--active {
+    background-color: #64B700;
+    width: 44px;
   }
 
   /* ── Diagonal separator ──────────────────────────── */
@@ -266,6 +334,13 @@
       clip-path: none !important;
       transition: none !important;
     }
+    .nxr-how__bar,
+    .nxr-how__heading,
+    .nxr-how__list li,
+    .nxr-how__dot,
+    .nxr-how__dots {
+      transition: none !important;
+    }
     .nxr-how__sep-line {
       transform: rotate(8deg) scaleY(1) !important;
       transition: none !important;
@@ -300,14 +375,52 @@
     l.style.willChange = 'transform';
   });
 
+  /* ── Cycling state ─────────────────────────────────────── */
+  var dotsWrap    = document.getElementById('nxrHowDots');
+  var dots        = dotsWrap ? Array.from(dotsWrap.querySelectorAll('.nxr-how__dot')) : [];
+  var cycleIdx    = 0;
+  var cyclePaused = false;
+  var cycleTimer  = null;
+  var CYCLE_MS    = 4000;
+
+  function setCycleActive(idx) {
+    cycleIdx = idx;
+    rail.classList.add('nxr-how__rail--cycling');
+    pillars.forEach(function (p, i) {
+      p.classList.toggle('nxr-how__pillar--active', i === idx);
+    });
+    dots.forEach(function (d, i) {
+      d.classList.toggle('nxr-how__dot--active', i === idx);
+    });
+  }
+
+  function resetTimer() {
+    clearInterval(cycleTimer);
+    cycleTimer = setInterval(function () {
+      if (!cyclePaused) setCycleActive((cycleIdx + 1) % pillars.length);
+    }, CYCLE_MS);
+  }
+
+  /* Click dot → jump to pillar and reset timer */
+  dots.forEach(function (d) {
+    d.addEventListener('click', function () {
+      var t = parseInt(d.getAttribute('data-target'), 10);
+      if (!isNaN(t)) { setCycleActive(t); resetTimer(); }
+    });
+  });
+
+  /* Pause cycling on hover */
+  rail.addEventListener('mouseenter', function () { cyclePaused = true; });
+  rail.addEventListener('mouseleave', function () { cyclePaused = false; });
+
   /* ── Trigger on intersection ───────────────────────────── */
   var observer = new IntersectionObserver(function (entries) {
     if (!entries[0].isIntersecting) return;
 
-    var STAGGER     = 90;   /* ms between each pillar */
-    var PILLAR_DUR  = 550;  /* ms, clip-path transition */
-    var SEP_DELAY   = pillars.length * STAGGER + 80;
-    var SEP_DUR     = 400;
+    var STAGGER    = 90;   /* ms between each pillar */
+    var PILLAR_DUR = 550;  /* ms, clip-path transition */
+    var SEP_DELAY  = pillars.length * STAGGER + 80;
+    var SEP_DUR    = 400;
 
     /* Reveal pillars left → right */
     pillars.forEach(function (p, i) {
@@ -328,6 +441,19 @@
         setTimeout(function () { l.style.willChange = 'auto'; }, SEP_DUR + 50);
       });
     }, SEP_DELAY);
+
+    /* Start auto-cycling after all intro animations complete */
+    var INTRO_DONE_MS = SEP_DELAY + SEP_DUR + 400;
+    setTimeout(function () {
+      if (dotsWrap) {
+        dotsWrap.classList.add('nxr-how__dots--visible');
+        dotsWrap.removeAttribute('aria-hidden');
+      }
+      setCycleActive(0);
+      cycleTimer = setInterval(function () {
+        if (!cyclePaused) setCycleActive((cycleIdx + 1) % pillars.length);
+      }, CYCLE_MS);
+    }, INTRO_DONE_MS);
 
     observer.unobserve(rail);
   }, { threshold: 0.15 });
