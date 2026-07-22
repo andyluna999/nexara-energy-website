@@ -1279,10 +1279,28 @@
       }, 180);
     }
 
-    /* Attach click handlers */
+    /* Auto-cycle — advances every 4s, pauses on hover, resets on manual click */
+    var howIdx = 0, howTimer;
+    var howSection = document.querySelector('.nxr-how');
+    function howAdvance() {
+      howIdx = (howIdx + 1) % HOW_STEPS.length;
+      setStep(howIdx);
+    }
+    howTimer = setInterval(howAdvance, 4000);
+    if (howSection) {
+      howSection.addEventListener('mouseenter', function () { clearInterval(howTimer); });
+      howSection.addEventListener('mouseleave', function () { howTimer = setInterval(howAdvance, 4000); });
+    }
+
+    /* Attach click handlers — also resets the auto-cycle timer */
     for (var i = 0; i < items.length; i++) {
       (function (idx) {
-        items[idx].addEventListener('click', function () { setStep(idx); });
+        items[idx].addEventListener('click', function () {
+          howIdx = idx;
+          clearInterval(howTimer);
+          setStep(idx);
+          howTimer = setInterval(howAdvance, 4000);
+        });
       }(i));
     }
 
@@ -1320,9 +1338,28 @@
       }, 150);
     }
 
+    /* Auto-cycle — advances every 4s, pauses on hover, resets on manual click */
+    var lcIdx = 0, lcTimer;
+    var lcSection = document.querySelector('.nxr-lc');
+    function lcAdvance() {
+      lcIdx = (lcIdx + 1) % LC_STEPS.length;
+      setLcStep(lcIdx);
+    }
+    lcTimer = setInterval(lcAdvance, 4000);
+    if (lcSection) {
+      lcSection.addEventListener('mouseenter', function () { clearInterval(lcTimer); });
+      lcSection.addEventListener('mouseleave', function () { lcTimer = setInterval(lcAdvance, 4000); });
+    }
+
+    /* Attach click handlers — also resets the auto-cycle timer */
     for (var i = 0; i < steps.length; i++) {
       (function (idx) {
-        steps[idx].addEventListener('click', function () { setLcStep(idx); });
+        steps[idx].addEventListener('click', function () {
+          lcIdx = idx;
+          clearInterval(lcTimer);
+          setLcStep(idx);
+          lcTimer = setInterval(lcAdvance, 4000);
+        });
       }(i));
     }
 
